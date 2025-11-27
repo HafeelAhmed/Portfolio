@@ -27,7 +27,7 @@ export const Contact = () => {
                   <p>You can reach me via the following methods:</p>
                   <ul style={{ listStyle: "none", paddingLeft: 0 }}>
                     <li><strong>Email:</strong> <a href="mailto:hafeelahmed06@gmail.com">hafeelahmed06@gmail.com</a></li>
-                    <li><strong>Phone:</strong> <a href="tel:+909944547694">+90 994 454 7694</a></li>
+                    <li><strong>Phone:</strong> <a href="tel:+919944547694">+91 994 454 7694</a></li>
                   </ul>
                 </div>
               }

@@ -59,7 +59,7 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Hafeel Ahmed`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Game Developer", "Product Designer", "3d Modeler" ]'><span className="wrap">{text}</span></span></h1>
                   <p>Bringing ideas to life through code, design, and 3D art. Explore my work and see how I combine creativity with technical expertise.</p>
-                  <button onClick={() =>window.location.href = 'hafeelahmed06@gmail.com'}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <button onClick={() =>window.location.href = 'mailto:hafeelahmed06@gmail.com'}>Let’s Connect <ArrowRightCircle size={25} /></button>
                   
               </div>}
             </TrackVisibility>
