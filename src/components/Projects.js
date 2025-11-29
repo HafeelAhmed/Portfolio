@@ -1,108 +1,17 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
-import iphoneGif from "../assets/gifs/iphone.gif"
-import carGif from "../assets/gifs/car.gif"
-import micImg from "../assets/img/Mic.png"
-import robotImg from "../assets/img/Robot.png"
-import headphoneImg from "../assets/img/headphone.png"
 import colorSharp2 from "../assets/img/color-sharp2.png";
-
-import puzzleGameGif from "../assets/gifs/PuzzleGamePromo.gif"
-import cubeRunnerGif from "../assets/gifs/GoBoPromo.gif"
-import escapeProtocalGif from "../assets/gifs/SpaceGamePromo.gif"
-import tapGameGif from "../assets/gifs/TapGamePromo.gif"
-import hideAndEscapeGif from "../assets/gifs/lobbyPromo.gif"
-import dragonIslandGif from "../assets/gifs/DragonIslandPromo.gif"
-import propAndHuntGif from "../assets/gifs/PropAndHuntPromo.gif"
 
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { projectsData } from '../data/projectsData'
 
 export const Projects = () => {
 
-  const gameProjects = [
-    {
-      title: "Momentum Cube",
-      description: "A 3D physics puzzle game where players roll and push a cube to solve platforming challenges",
-      imgUrl: puzzleGameGif,
-      url: "#"
-    },
-    {
-      title: "Escape Protocol",
-      description: "You're alone in a drifting spaceship. Complete repair tasks and survive the unknown",
-      imgUrl: escapeProtocalGif,
-      url: "#"
-    },
-    {
-      title: "Endless Cube Runner",
-      description: "Control a speeding cube in a never-ending 3D track filled with obstacles and increasing speed",
-      imgUrl:cubeRunnerGif,
-      url: "#"
-    },
-    {
-      title: "Tap to Boom – Bomb Defusal Game",
-      description: "Arcade tapper game where bombs fall from the sky and quick reflexes are key to survival",
-      imgUrl: tapGameGif,
-      url: "#"
-    },
-    {
-      title: "Hide as Prop (Prototype)",
-      description: "Prototype of a mechanic where players hide in plain sight by morphing into surrounding objects",
-      imgUrl: propAndHuntGif,
-      url: "#"
-    },
-    {
-      title: "Dragon Scout – AI Behavior Showcase (Prototype)",
-      description: "Mechanics test focusing on an enemy AI that reacts to player movement and patterns",
-      imgUrl: dragonIslandGif,
-      url: "#"
-    },
-    {
-      title: "Choose Your Side (Prototype)",
-      description: "A simple team selection screen prototype developed for a cancelled multiplayer game",
-      imgUrl: hideAndEscapeGif,
-      url: "#"
-    },
+const gameProjects = projectsData.filter(p => p.category === "Game Dev");
+const animationProjects = projectsData.filter(p => p.category === "3D Art");
     
-  ];
 
-  const animationProjects = [
-    {
-      title: "Smartphone Product Showcase",
-      description: "Sleek 3D product animation of a high-end smartphone",
-      imgUrl: iphoneGif,
-      url: "#"
-    },
-    {
-      title: "Mustang Cinematic Render",
-      description: "Stylized 3D cinematic shot of a Mustang muscle car",
-      imgUrl: carGif,
-      url: "#"
-    },
-    {
-      title: "Headphone Product Visualization",
-      description: "High-detail headphone render showcasing product design and materials",
-      imgUrl: headphoneImg,
-      url: "#"
-    },
-    {
-      title: "Color Mic – Stylized Product Render",
-      description: "Vibrant product render of a microphone in color-focused setup",
-      imgUrl: micImg,
-      url: "#"
-    },
-    {
-      title: "Lonely Robot – Concept Render",
-      description: "Concept render of a solitary robot, emphasizing atmosphere and narrative",
-      imgUrl: robotImg,
-      url: "#"
-    },
-    
-    
-  ];
 
   return (
     <section className="project" id="projects">
@@ -130,10 +39,10 @@ export const Projects = () => {
                     <Tab.Pane eventKey="first">
                       <Row>
                         {
-                          gameProjects.map((project, index) => {
+                          gameProjects.map((project) => {
                             return (
                               <ProjectCard
-                                key={index}
+                                key={project.id}
                                 {...project}
                                 />
                             )
@@ -144,10 +53,10 @@ export const Projects = () => {
                     <Tab.Pane eventKey="second">
                       <Row>
                         {
-                          animationProjects.map((project, index) => {
+                          animationProjects.map((project) => {
                             return (
                               <ProjectCard
-                                key={index}
+                                key={project.id}
                                 {...project}
                                 />
                             )
