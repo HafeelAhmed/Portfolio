@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.be0a58e1.css",
-    "main.js": "/Portfolio/static/js/main.3b078bb3.js",
+    "main.css": "/Portfolio/static/css/main.5d138280.css",
+    "main.js": "/Portfolio/static/js/main.8907b790.js",
     "static/js/787.fb771931.chunk.js": "/Portfolio/static/js/787.fb771931.chunk.js",
     "static/media/GoBoPromo.gif": "/Portfolio/static/media/GoBoPromo.ff48e99564d6d33fc22d.gif",
     "static/media/TapGamePromo.gif": "/Portfolio/static/media/TapGamePromo.eb5d7649b7bfedd4f062.gif",
@@ -22,10 +22,7 @@
     "static/media/CentraNo2-Bold.ttf": "/Portfolio/static/media/CentraNo2-Bold.2faff7f7d3fc92a2fcd9.ttf",
     "static/media/CentraNo2-Medium.ttf": "/Portfolio/static/media/CentraNo2-Medium.f94be5b326d78bb32b95.ttf",
     "static/media/CentraNo2-Book.ttf": "/Portfolio/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
-    "static/media/project-img1.png": "/Portfolio/static/media/project-img1.d593db3f12901bc685c2.png",
     "static/media/footer-bg.png": "/Portfolio/static/media/footer-bg.7bd67c0f73571d0acc02.png",
-    "static/media/project-img2.png": "/Portfolio/static/media/project-img2.2e52097c417f9f1134b0.png",
-    "static/media/project-img3.png": "/Portfolio/static/media/project-img3.675b30d2f975a1bc1d09.png",
     "static/media/contact-img.svg": "/Portfolio/static/media/contact-img.87eac2b29352fa01abb2f9510ef6ac7e.svg",
     "static/media/revicons.eot": "/Portfolio/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/Portfolio/static/media/revicons.57fd05d4ae650374c8de.ttf",
@@ -40,12 +37,12 @@
     "static/media/arrow2.svg": "/Portfolio/static/media/arrow2.3d9522b6fd8f2464b7200ebf2c1bb09a.svg",
     "static/media/arrow1.svg": "/Portfolio/static/media/arrow1.0c89b5b635adf255c2822c630aaa6ccf.svg",
     "static/media/IconMail.svg": "/Portfolio/static/media/IconMail.acf8aa28fc9d906e7aebce120e832dc9.svg",
-    "main.be0a58e1.css.map": "/Portfolio/static/css/main.be0a58e1.css.map",
-    "main.3b078bb3.js.map": "/Portfolio/static/js/main.3b078bb3.js.map",
+    "main.5d138280.css.map": "/Portfolio/static/css/main.5d138280.css.map",
+    "main.8907b790.js.map": "/Portfolio/static/js/main.8907b790.js.map",
     "787.fb771931.chunk.js.map": "/Portfolio/static/js/787.fb771931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.be0a58e1.css",
-    "static/js/main.3b078bb3.js"
+    "static/css/main.5d138280.css",
+    "static/js/main.8907b790.js"
   ]
 }
