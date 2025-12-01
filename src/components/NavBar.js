@@ -30,7 +30,7 @@ export const NavBar = () => {
   }
 
   return (
-    <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+    <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
       <Container>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -57,7 +57,7 @@ export const NavBar = () => {
               <a href="mailto:hafeelahmed06@gmail.com"><img src={navIcon2} alt="Email"/></a>
               <a href="https://www.instagram.com/blender_render._/" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Instagram" /></a>
             </div>
-            <Nav.Link as={Link} to="/contact">
+            <Nav.Link as={Link} to="Portfolio/contact">
               <button className="vvd"><span>Let's Connect</span></button>
             </Nav.Link>
           </span>

@@ -33,7 +33,7 @@
   /* Max 3 columns, min card width 280px */
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  max-width: 1080px;      /* 3 × 360px column area */
+  max-width: 2080px;      /* 3 × 360px column area */
   margin: 0 auto;         /* center the grid */
 }
 

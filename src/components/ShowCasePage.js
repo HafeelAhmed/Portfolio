@@ -11,8 +11,8 @@ export const ShowCasePage = ({
   category = 'Game Dev',
   role = 'Developer',
   description = 'Project description',
-  challenges = 'Test Challenges',
-  solution = 'Test Solution',
+  Contributions = 'Test Contributions',
+  Process = 'Test Process',
   usedTools = ['test tool1', 'test tool2', 'test tool3', 'test tool4'],
   linkToProject = '',
   hasLink = false,
@@ -57,16 +57,11 @@ export const ShowCasePage = ({
   };
 
   const shareOnLinkedIn = () => {
-    const url = window.location.href;
-    const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+    const linkedInUrl = `https://www.linkedin.com/in/hafeel-ahmed-43a611243/`;
     window.open(linkedInUrl, '_blank');
   };
 
-  const shareOnTwitter = () => {
-    const url = window.location.href;
-    const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Check out this amazing project: ${title}`;
-    window.open(twitterUrl, '_blank');
-  };
+
 
   return (
     <section style={{
@@ -404,8 +399,8 @@ export const ShowCasePage = ({
           }
         </TrackVisibility>
 
-        {/* CHALLENGES & SOLUTIONS */}
-        {challenges || solution ?
+        {/* Contributions & ProcessS */}
+        {Contributions || Process ?
           <TrackVisibility partialVisibility>
             {({ isVisible }) =>
               <Row className={isVisible ? "animate__animated animate__fadeInUp" : ""} style={{ marginBottom: '60px' }}>
@@ -426,21 +421,31 @@ export const ShowCasePage = ({
                       marginBottom: '15px',
                       fontFamily: "'Centra', sans-serif"
                     }}>
-                      Challenges
+                      Contributions
                     </h4>
-                    <p style={{
-                      fontSize: '16px',
-                      color: '#b7b9cc',
-                      lineHeight: '1.7',
-                      letterSpacing: '0.6px',
-                      marginBottom: 0,
-                      fontFamily: "'Centra', sans-serif"
-                    }}>
-                      {challenges}
-                    </p>
+                      <ul style={{
+                        fontSize: '16px',
+                        color: '#b7b9cc',
+                        lineHeight: '1.7',
+                        letterSpacing: '0.6px',
+                        marginBottom: 0,
+                        fontFamily: "'Centra', sans-serif",
+                        paddingLeft: '20px'
+                      }}>
+                        {Contributions
+                          .split(/[.\n]/) // split by period or newline
+                          .map((point, index) =>
+                            point.trim() !== "" && (
+                              <li key={index} style={{ marginBottom: "6px" }}>
+                                {point.trim()}
+                              </li>
+                            )
+                          )
+                        }
+                      </ul>
                   </div>
                 </Col>
-                <Col lg={6} md={12}>
+                <Col lg={6} md={12} style={{ marginBottom: '24px' }}>
                   <div style={{
                     background: 'rgba(255, 255, 255, 0.02)',
                     border: '1px solid rgba(255, 255, 255, 0.06)',
@@ -457,18 +462,28 @@ export const ShowCasePage = ({
                       marginBottom: '15px',
                       fontFamily: "'Centra', sans-serif"
                     }}>
-                      Solution
+                      Process
                     </h4>
-                    <p style={{
-                      fontSize: '16px',
-                      color: '#b7b9cc',
-                      lineHeight: '1.7',
-                      letterSpacing: '0.6px',
-                      marginBottom: 0,
-                      fontFamily: "'Centra', sans-serif"
-                    }}>
-                      {solution}
-                    </p>
+                      <ul style={{
+                        fontSize: '16px',
+                        color: '#b7b9cc',
+                        lineHeight: '1.7',
+                        letterSpacing: '0.6px',
+                        marginBottom: 0,
+                        fontFamily: "'Centra', sans-serif",
+                        paddingLeft: '20px'
+                      }}>
+                        {Process
+                          .split(/[.\n]/) // split by period or newline
+                          .map((point, index) =>
+                            point.trim() !== "" && (
+                              <li key={index} style={{ marginBottom: "6px" }}>
+                                {point.trim()}
+                              </li>
+                            )
+                          )
+                        }
+                      </ul>
                   </div>
                 </Col>
               </Row>
@@ -608,34 +623,7 @@ export const ShowCasePage = ({
                     LinkedIn
                   </button>
 
-                  {/* Twitter Share */}
-                  <button
-                    onClick={shareOnTwitter}
-                    style={{
-                      background: 'rgba(29, 161, 242, 0.15)',
-                      color: '#1da1f2',
-                      border: '1px solid #1da1f2',
-                      padding: '14px 28px',
-                      fontSize: '16px',
-                      fontWeight: '600',
-                      borderRadius: '8px',
-                      cursor: 'pointer',
-                      transition: '0.3s ease-in-out',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      fontFamily: "'Centra', sans-serif"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'rgba(29, 161, 242, 0.25)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'rgba(29, 161, 242, 0.15)';
-                    }}
-                  >
-                    <Twitter size={18} />
-                    Twitter
-                  </button>
+                  
                 </div>
               </Col>
             </Row>
