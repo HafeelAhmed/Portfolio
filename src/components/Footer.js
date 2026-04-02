@@ -16,7 +16,7 @@ export const Footer = () => {
           </Col>
           <Col size={12} sm={6} className="text-center text-sm-end">
             
-            <p>Bringing ideas to life, one project at a time. © 2025 Hafeel Ahmed | Thank you for visiting! </p>
+            <p>Bringing ideas to life, one project at a time. © 2026 Hafeel Ahmed | Thank you for visiting! </p>
           </Col>
         </Row>
       </Container>

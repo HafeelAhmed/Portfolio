@@ -20,10 +20,7 @@ function About() {
                   textAlign: "justify",
                   color: "#B8B8B8"
                 }}>
-                  Hello! I'm <strong>Hafeel Ahmed</strong>, a passionate game development enthusiast based in India. 
-                  With a <strong>B.Tech degree in Computer Science and Engineering</strong> specialized in <strong>AI and Machine Learning</strong>, 
-                  I've spent the past couple of years honing my skills in <strong>game mechanics</strong>, <strong>3D modeling</strong>, 
-                  and <strong>product animation</strong>.
+                  Hello! I'm <strong>Hafeel Ahmed</strong>, a game developer based in India with a <strong>B.Tech in Computer Science and Engineering</strong>, specialized in <strong>AI and Machine Learning</strong>. I have over <strong>3 years of hands-on experience</strong> developing games using <strong>Unreal Engine 5</strong>, focusing on gameplay systems and interactive mechanics.
                 </p>
 
                 <p style={{
@@ -33,9 +30,7 @@ function About() {
                   textAlign: "justify",
                   color: "#B8B8B8"
                 }}>
-                  Though I’m currently not in a professional role, I have practical experience working with 
-                  <strong> Unreal Engine 5</strong>, <strong>Blender</strong>, and <strong>C++ programming</strong>, 
-                  driven by a deep love for <em>problem solving</em> and <em>logical thinking</em>.
+                  I am currently working on <strong>ARES 2192</strong> at <strong>TenderizerGames</strong>, where I contribute to building multiplayer gameplay systems, core mechanics, and performance-optimized features using <strong>Blueprint</strong> and <strong>C++</strong>.
                 </p>
 
                 <p style={{
@@ -45,12 +40,7 @@ function About() {
                   textAlign: "justify",
                   color: "#B8B8B8"
                 }}>
-                  <em>Collaboration</em> and <em>creativity</em> fuel my working style, and I thrive when I can combine 
-                  <strong>innovation</strong> with <strong>reliability</strong> in my projects. My goal is to become a 
-                  <strong> gameplay programmer</strong> and <strong>mechanics developer</strong>, building engaging and 
-                  well-known indie games that capture players' imaginations. I value <strong>rationality</strong> and am 
-                  always motivated by the <em>satisfaction</em> and <em>peace</em> that come from solving complex 
-                  challenges in game design.
+                  My work is driven by a strong foundation in <strong>problem-solving</strong> and <strong>system design</strong>, along with experience in tools like <strong>Blender</strong> for 3D modeling and animation. I enjoy building systems that are both technically robust and engaging for players.
                 </p>
 
                 <p style={{
@@ -60,10 +50,7 @@ function About() {
                   textAlign: "justify",
                   color: "#B8B8B8"
                 }}>
-                  Outside of development, I enjoy reading <em>manhwas</em> and <em>self-improvement books</em>, and I have a 
-                  keen interest in <strong>jet engines</strong>, <strong>physics theories</strong>, <strong>quantum physics</strong>, 
-                  and <strong>science fiction</strong>. These passions inspire me to constantly learn and think beyond the 
-                  conventional—keeping my <em>creativity alive</em>.
+                  I aim to grow as a <strong>gameplay programmer</strong>, contributing to high-quality, immersive games while collaborating in professional development environments.
                 </p>
 
                 <p style={{
@@ -72,8 +59,7 @@ function About() {
                   textAlign: "justify",
                   color: "#B8B8B8"
                 }}>
-                  I am excited about the journey ahead, aiming to make meaningful contributions in game development while 
-                  growing as a <strong>creative programmer</strong>.
+                  Outside of development, I enjoy reading manhwas and exploring topics like <strong>physics</strong>, <strong>jet engines</strong>, and <strong>science fiction</strong>, which continue to inspire my creativity and curiosity.
                 </p>
               </div>
             </div>
