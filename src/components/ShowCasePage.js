@@ -1,9 +1,33 @@
 import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { ChevronLeft, ChevronRight, Github, Linkedin, Twitter, BoxArrowUpRight } from 'react-bootstrap-icons';
+import {
+  ChevronLeft,
+  ChevronRight,
+  Github,
+  Linkedin,
+  BoxArrowUpRight,
+  Steam
+} from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
-import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+
+const RevealOnce = ({ children, delay = '0s' }) => {
+  return (
+    <TrackVisibility partialVisibility once>
+      {({ isVisible }) => (
+        <div
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}`,
+            willChange: 'opacity'
+          }}
+        >
+          {children}
+        </div>
+      )}
+    </TrackVisibility>
+  );
+};
 
 export const ShowCasePage = ({
   imageUrls = ['.Mic.png'],
@@ -40,6 +64,8 @@ export const ShowCasePage = ({
       return { text: 'View on GitHub', icon: Github, size: 20 };
     } else if (linkToProject.includes('itch.io')) {
       return { text: 'Play on itch.io', icon: BoxArrowUpRight, size: 20 };
+    } else if (linkToProject.includes('steam')) {
+      return { text: 'Play on Steam', icon: Steam, size: 20 };
     } else {
       return { text: 'View Project', icon: BoxArrowUpRight, size: 20 };
     }
@@ -49,31 +75,34 @@ export const ShowCasePage = ({
 
   const getCategoryColor = () => {
     switch (category) {
-      case 'Game Dev': return '#4A2FBD';
-      case '3D Art': return '#AA367C';
-      case 'Web Dev': return '#17A2B8';
-      default: return '#4A2FBD';
+      case 'Game Dev':
+        return '#4A2FBD';
+      case '3D Art':
+        return '#AA367C';
+      case 'Web Dev':
+        return '#17A2B8';
+      default:
+        return '#4A2FBD';
     }
   };
 
   const shareOnLinkedIn = () => {
-    const linkedInUrl = `https://www.linkedin.com/in/hafeel-ahmed-43a611243/`;
+    const linkedInUrl = 'https://www.linkedin.com/in/hafeel-ahmed-43a611243/';
     window.open(linkedInUrl, '_blank');
   };
 
-
-
   return (
-    <section style={{
-      minHeight: '100vh',
-      padding: '120px 0 80px 0',
-      background: 'radial-gradient(circle at top, #1a1b3a 0%, #05070c 55%, #050509 100%)',
-      color: '#f5f5f5'
-    }}>
+    <section
+      style={{
+        minHeight: '100vh',
+        padding: '120px 0 80px 0',
+        background: 'radial-gradient(circle at top, #1a1b3a 0%, #05070c 55%, #050509 100%)',
+        color: '#f5f5f5'
+      }}
+    >
       <Container>
         <Row className="align-items-center mb-5">
           <Col lg={12}>
-            {/* BACK BUTTON */}
             <div style={{ marginBottom: '30px' }}>
               <button
                 onClick={() => navigate('/portfolio/projects')}
@@ -92,12 +121,12 @@ export const ShowCasePage = ({
                   gap: '8px'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.borderColor = '#AA367C';
-                  e.target.style.color = '#AA367C';
+                  e.currentTarget.style.borderColor = '#AA367C';
+                  e.currentTarget.style.color = '#AA367C';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.06)';
-                  e.target.style.color = '#f5f5f5';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                  e.currentTarget.style.color = '#f5f5f5';
                 }}
               >
                 <ChevronLeft size={18} />
@@ -105,11 +134,10 @@ export const ShowCasePage = ({
               </button>
             </div>
 
-            {/* TITLE AND BADGES */}
-            <TrackVisibility partialVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeInUp" : ""}>
-                  <h1 style={{
+            <RevealOnce delay="0s">
+              <div>
+                <h1
+                  style={{
                     fontSize: '48px',
                     fontWeight: '700',
                     color: '#f5f5f5',
@@ -117,16 +145,21 @@ export const ShowCasePage = ({
                     letterSpacing: '1.2px',
                     lineHeight: '1.2',
                     fontFamily: "'Centra', sans-serif"
-                  }}>
-                    {title}
-                  </h1>
-                  <div style={{
+                  }}
+                >
+                  {title}
+                </h1>
+
+                <div
+                  style={{
                     display: 'flex',
                     gap: '15px',
                     marginBottom: '30px',
                     flexWrap: 'wrap'
-                  }}>
-                    <span style={{
+                  }}
+                >
+                  <span
+                    style={{
                       background: `${getCategoryColor()}16`,
                       color: getCategoryColor(),
                       padding: '8px 16px',
@@ -135,10 +168,13 @@ export const ShowCasePage = ({
                       fontWeight: '600',
                       border: `1px solid ${getCategoryColor()}60`,
                       fontFamily: "'Centra', sans-serif"
-                    }}>
-                      {category}
-                    </span>
-                    <span style={{
+                    }}
+                  >
+                    {category}
+                  </span>
+
+                  <span
+                    style={{
                       background: 'rgba(74, 47, 189, 0.16)',
                       color: '#c2c6ff',
                       padding: '8px 16px',
@@ -147,50 +183,48 @@ export const ShowCasePage = ({
                       fontWeight: '600',
                       border: '1px solid rgba(74, 47, 189, 0.6)',
                       fontFamily: "'Centra', sans-serif"
-                    }}>
-                      {role}
-                    </span>
-                  </div>
+                    }}
+                  >
+                    {role}
+                  </span>
                 </div>
-              }
-            </TrackVisibility>
+              </div>
+            </RevealOnce>
           </Col>
         </Row>
 
-        {/* IMAGE GALLERY */}
-        {imageUrls.length > 0 &&
-          <TrackVisibility partialVisibility>
-            {({ isVisible }) =>
-              <Row className={isVisible ? "animate__animated animate__fadeInUp" : ""} style={{ marginBottom: '60px' }}>
-                <Col lg={12}>
-                  {/* Main Image */}
-                  <div 
+        {imageUrls.length > 0 && (
+          <RevealOnce delay="0.05s">
+            <Row style={{ marginBottom: '60px' }}>
+              <Col lg={12}>
+                <div
+                  style={{
+                    position: 'relative',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    marginBottom: '24px',
+                    background: 'rgba(10, 11, 24, 0.9)',
+                    border: '1px solid rgba(255, 255, 255, 0.06)',
+                    height: '500px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)',
+                    transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-6px)';
+                    e.currentTarget.style.boxShadow = '0 22px 50px rgba(0, 0, 0, 0.6)';
+                    e.currentTarget.style.borderColor = '#AA367C';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 16px 40px rgba(0, 0, 0, 0.35)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                  }}
+                >
+                  <div
                     style={{
-                      position: 'relative',
-                      borderRadius: '16px',
-                      overflow: 'hidden',
-                      marginBottom: '24px',
-                      background: 'rgba(10, 11, 24, 0.9)',
-                      border: '1px solid rgba(255, 255, 255, 0.06)',
-                      height: '500px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)',
-                      transition: 'transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-6px)';
-                      e.currentTarget.style.boxShadow = '0 22px 50px rgba(0, 0, 0, 0.6)';
-                      e.currentTarget.style.borderColor = '#AA367C';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 16px 40px rgba(0, 0, 0, 0.35)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
-                    }}
-                  >
-                    <div style={{
                       position: 'relative',
                       width: '100%',
                       height: '100%',
@@ -200,178 +234,184 @@ export const ShowCasePage = ({
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center'
-                    }}>
-                      <img
-                        src={imageUrls[currentImageIndex]}
-                        alt={`${title} - Screenshot ${currentImageIndex + 1}`}
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'contain',
-                          transition: 'transform 0.3s ease-in-out',
-                          backgroundColor: '#060713'
-                        }}
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.parentElement.innerHTML = '<div style="color: rgba(255,255,255,0.3); font-size: 18px;">No Image Available</div>';
-                        }}
-                      />
-                    </div>
-
-                    {/* Navigation Arrows */}
-                    {imageUrls.length > 1 && (
-                      <>
-                        <button
-                          onClick={prevImage}
-                          style={{
-                            position: 'absolute',
-                            left: '20px',
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            background: 'rgba(10, 11, 24, 0.9)',
-                            border: '1px solid rgba(255, 255, 255, 0.06)',
-                            color: '#f5f5f5',
-                            width: '50px',
-                            height: '50px',
-                            borderRadius: '50%',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            transition: '0.3s ease-in-out',
-                            zIndex: 10
-                          }}
-                          onMouseEnter={(e) => {
-                            e.target.style.background = 'linear-gradient(135deg, #AA367C, #4A2FBD)';
-                            e.target.style.transform = 'translateY(-50%) scale(1.1)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.target.style.background = 'rgba(10, 11, 24, 0.9)';
-                            e.target.style.transform = 'translateY(-50%) scale(1)';
-                          }}
-                        >
-                          <ChevronLeft size={28} />
-                        </button>
-
-                        <button
-                          onClick={nextImage}
-                          style={{
-                            position: 'absolute',
-                            right: '20px',
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            background: 'rgba(10, 11, 24, 0.9)',
-                            border: '1px solid rgba(255, 255, 255, 0.06)',
-                            color: '#f5f5f5',
-                            width: '50px',
-                            height: '50px',
-                            borderRadius: '50%',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            transition: '0.3s ease-in-out',
-                            zIndex: 10
-                          }}
-                          onMouseEnter={(e) => {
-                            e.target.style.background = 'linear-gradient(135deg, #AA367C, #4A2FBD)';
-                            e.target.style.transform = 'translateY(-50%) scale(1.1)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.target.style.background = 'rgba(10, 11, 24, 0.9)';
-                            e.target.style.transform = 'translateY(-50%) scale(1)';
-                          }}
-                        >
-                          <ChevronRight size={28} />
-                        </button>
-                      </>
-                    )}
+                    }}
+                  >
+                    <img
+                      src={imageUrls[currentImageIndex]}
+                      alt={`${title} - Screenshot ${currentImageIndex + 1}`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                        transition: 'transform 0.3s ease-in-out',
+                        backgroundColor: '#060713'
+                      }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.parentElement.innerHTML =
+                          '<div style="color: rgba(255,255,255,0.3); font-size: 18px;">No Image Available</div>';
+                      }}
+                    />
                   </div>
 
-                  {/* Thumbnail Gallery */}
                   {imageUrls.length > 1 && (
-                    <div style={{
+                    <>
+                      <button
+                        onClick={prevImage}
+                        style={{
+                          position: 'absolute',
+                          left: '20px',
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          background: 'rgba(10, 11, 24, 0.9)',
+                          border: '1px solid rgba(255, 255, 255, 0.06)',
+                          color: '#f5f5f5',
+                          width: '50px',
+                          height: '50px',
+                          borderRadius: '50%',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          transition: '0.3s ease-in-out',
+                          zIndex: 10
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'linear-gradient(135deg, #AA367C, #4A2FBD)';
+                          e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'rgba(10, 11, 24, 0.9)';
+                          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+                        }}
+                      >
+                        <ChevronLeft size={28} />
+                      </button>
+
+                      <button
+                        onClick={nextImage}
+                        style={{
+                          position: 'absolute',
+                          right: '20px',
+                          top: '50%',
+                          transform: 'translateY(-50%)',
+                          background: 'rgba(10, 11, 24, 0.9)',
+                          border: '1px solid rgba(255, 255, 255, 0.06)',
+                          color: '#f5f5f5',
+                          width: '50px',
+                          height: '50px',
+                          borderRadius: '50%',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          transition: '0.3s ease-in-out',
+                          zIndex: 10
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'linear-gradient(135deg, #AA367C, #4A2FBD)';
+                          e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'rgba(10, 11, 24, 0.9)';
+                          e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+                        }}
+                      >
+                        <ChevronRight size={28} />
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                {imageUrls.length > 1 && (
+                  <div
+                    style={{
                       display: 'flex',
                       gap: '12px',
                       overflowX: 'auto',
                       paddingBottom: '10px'
-                    }}>
-                      {imageUrls.map((img, index) => (
-                        <button
-                          key={index}
-                          onClick={() => goToImage(index)}
+                    }}
+                  >
+                    {imageUrls.map((img, index) => (
+                      <button
+                        key={index}
+                        onClick={() => goToImage(index)}
+                        style={{
+                          width: '100px',
+                          height: '80px',
+                          borderRadius: '12px',
+                          border:
+                            currentImageIndex === index
+                              ? '2px solid #AA367C'
+                              : '2px solid rgba(255, 255, 255, 0.2)',
+                          background: '#1a1a1d',
+                          cursor: 'pointer',
+                          overflow: 'hidden',
+                          padding: 0,
+                          flexShrink: 0,
+                          transition: '0.3s ease-in-out',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                        onMouseEnter={(e) => {
+                          if (currentImageIndex !== index) {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (currentImageIndex !== index) {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                          }
+                        }}
+                      >
+                        <img
+                          src={img}
+                          alt={`Thumbnail ${index + 1}`}
                           style={{
-                            width: '100px',
-                            height: '80px',
-                            borderRadius: '12px',
-                            border: currentImageIndex === index ? '2px solid #AA367C' : '2px solid rgba(255, 255, 255, 0.2)',
-                            background: '#1a1a1d',
-                            cursor: 'pointer',
-                            overflow: 'hidden',
-                            padding: 0,
-                            flexShrink: 0,
-                            transition: '0.3s ease-in-out',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain'
                           }}
-                          onMouseEnter={(e) => {
-                            if (currentImageIndex !== index) {
-                              e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                            }
-                          }}
-                          onMouseLeave={(e) => {
-                            if (currentImageIndex !== index) {
-                              e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                            }
-                          }}
-                        >
-                          <img
-                            src={img}
-                            alt={`Thumbnail ${index + 1}`}
-                            style={{
-                              width: '100%',
-                              height: '100%',
-                              objectFit: 'contain'
-                            }}
-                          />
-                        </button>
-                      ))}
-                    </div>
-                  )}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
 
-                  {/* Image Indicators */}
-                  {imageUrls.length > 1 && (
-                    <div style={{
+                {imageUrls.length > 1 && (
+                  <div
+                    style={{
                       textAlign: 'center',
                       marginTop: '16px',
                       fontSize: '14px',
                       color: '#b7b9cc',
                       fontFamily: "'Centra', sans-serif"
-                    }}>
-                      {currentImageIndex + 1} / {imageUrls.length}
-                    </div>
-                  )}
-                </Col>
-              </Row>
-            }
-          </TrackVisibility>
-        }
+                    }}
+                  >
+                    {currentImageIndex + 1} / {imageUrls.length}
+                  </div>
+                )}
+              </Col>
+            </Row>
+          </RevealOnce>
+        )}
 
-        {/* DESCRIPTION */}
-        <TrackVisibility partialVisibility>
-          {({ isVisible }) =>
-            <Row className={isVisible ? "animate__animated animate__fadeInUp" : ""} style={{ marginBottom: '60px' }}>
-              <Col lg={12}>
-                <div style={{
+        <RevealOnce delay="0.1s">
+          <Row style={{ marginBottom: '60px' }}>
+            <Col lg={12}>
+              <div
+                style={{
                   background: 'rgba(255, 255, 255, 0.02)',
                   border: '1px solid rgba(255, 255, 255, 0.06)',
                   borderRadius: '16px',
                   padding: '40px',
                   backdropFilter: 'blur(10px)',
                   boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)'
-                }}>
-                  <h3 style={{
+                }}
+              >
+                <h3
+                  style={{
                     fontSize: '32px',
                     fontWeight: '700',
                     marginBottom: '20px',
@@ -380,32 +420,34 @@ export const ShowCasePage = ({
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
                     fontFamily: "'Centra', sans-serif"
-                  }}>
-                    Project Overview
-                  </h3>
-                  <p style={{
+                  }}
+                >
+                  Project Overview
+                </h3>
+
+                <p
+                  style={{
                     fontSize: '18px',
                     color: '#b7b9cc',
                     lineHeight: '1.8',
                     letterSpacing: '0.8px',
                     marginBottom: 0,
                     fontFamily: "'Centra', sans-serif"
-                  }}>
-                    {description}
-                  </p>
-                </div>
-              </Col>
-            </Row>
-          }
-        </TrackVisibility>
+                  }}
+                >
+                  {description}
+                </p>
+              </div>
+            </Col>
+          </Row>
+        </RevealOnce>
 
-        {/* Contributions & ProcessS */}
-        {Contributions || Process ?
-          <TrackVisibility partialVisibility>
-            {({ isVisible }) =>
-              <Row className={isVisible ? "animate__animated animate__fadeInUp" : ""} style={{ marginBottom: '60px' }}>
-                <Col lg={6} md={12} style={{ marginBottom: '24px' }}>
-                  <div style={{
+        {(Contributions || Process) && (
+          <RevealOnce delay="0.15s">
+            <Row style={{ marginBottom: '60px' }}>
+              <Col lg={6} md={12} style={{ marginBottom: '24px' }}>
+                <div
+                  style={{
                     background: 'rgba(255, 255, 255, 0.02)',
                     border: '1px solid rgba(255, 255, 255, 0.06)',
                     borderRadius: '16px',
@@ -413,40 +455,46 @@ export const ShowCasePage = ({
                     backdropFilter: 'blur(10px)',
                     height: '100%',
                     boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)'
-                  }}>
-                    <h4 style={{
+                  }}
+                >
+                  <h4
+                    style={{
                       fontSize: '20px',
                       fontWeight: '700',
                       color: '#AA367C',
                       marginBottom: '15px',
                       fontFamily: "'Centra', sans-serif"
-                    }}>
-                      Contributions
-                    </h4>
-                      <ul style={{
-                        fontSize: '16px',
-                        color: '#b7b9cc',
-                        lineHeight: '1.7',
-                        letterSpacing: '0.6px',
-                        marginBottom: 0,
-                        fontFamily: "'Centra', sans-serif",
-                        paddingLeft: '20px'
-                      }}>
-                        {Contributions
-                          .split(/[.\n]/) // split by period or newline
-                          .map((point, index) =>
-                            point.trim() !== "" && (
-                              <li key={index} style={{ marginBottom: "6px" }}>
-                                {point.trim()}
-                              </li>
-                            )
-                          )
-                        }
-                      </ul>
-                  </div>
-                </Col>
-                <Col lg={6} md={12} style={{ marginBottom: '24px' }}>
-                  <div style={{
+                    }}
+                  >
+                    Contributions
+                  </h4>
+
+                  <ul
+                    style={{
+                      fontSize: '16px',
+                      color: '#b7b9cc',
+                      lineHeight: '1.7',
+                      letterSpacing: '0.6px',
+                      marginBottom: 0,
+                      fontFamily: "'Centra', sans-serif",
+                      paddingLeft: '20px'
+                    }}
+                  >
+                    {Contributions.split(/[.\n]/).map(
+                      (point, index) =>
+                        point.trim() !== '' && (
+                          <li key={index} style={{ marginBottom: '6px' }}>
+                            {point.trim()}
+                          </li>
+                        )
+                    )}
+                  </ul>
+                </div>
+              </Col>
+
+              <Col lg={6} md={12} style={{ marginBottom: '24px' }}>
+                <div
+                  style={{
                     background: 'rgba(255, 255, 255, 0.02)',
                     border: '1px solid rgba(255, 255, 255, 0.06)',
                     borderRadius: '16px',
@@ -454,58 +502,62 @@ export const ShowCasePage = ({
                     backdropFilter: 'blur(10px)',
                     height: '100%',
                     boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)'
-                  }}>
-                    <h4 style={{
+                  }}
+                >
+                  <h4
+                    style={{
                       fontSize: '20px',
                       fontWeight: '700',
                       color: '#4A2FBD',
                       marginBottom: '15px',
                       fontFamily: "'Centra', sans-serif"
-                    }}>
-                      Process
-                    </h4>
-                      <ul style={{
-                        fontSize: '16px',
-                        color: '#b7b9cc',
-                        lineHeight: '1.7',
-                        letterSpacing: '0.6px',
-                        marginBottom: 0,
-                        fontFamily: "'Centra', sans-serif",
-                        paddingLeft: '20px'
-                      }}>
-                        {Process
-                          .split(/[.\n]/) // split by period or newline
-                          .map((point, index) =>
-                            point.trim() !== "" && (
-                              <li key={index} style={{ marginBottom: "6px" }}>
-                                {point.trim()}
-                              </li>
-                            )
-                          )
-                        }
-                      </ul>
-                  </div>
-                </Col>
-              </Row>
-            }
-          </TrackVisibility> : null
-        }
+                    }}
+                  >
+                    Process
+                  </h4>
 
-        {/* TOOLS & TECHNOLOGIES */}
-        {usedTools.length > 0 &&
-          <TrackVisibility partialVisibility>
-            {({ isVisible }) =>
-              <Row className={isVisible ? "animate__animated animate__fadeInUp" : ""} style={{ marginBottom: '60px' }}>
-                <Col lg={12}>
-                  <div style={{
+                  <ul
+                    style={{
+                      fontSize: '16px',
+                      color: '#b7b9cc',
+                      lineHeight: '1.7',
+                      letterSpacing: '0.6px',
+                      marginBottom: 0,
+                      fontFamily: "'Centra', sans-serif",
+                      paddingLeft: '20px'
+                    }}
+                  >
+                    {Process.split(/[.\n]/).map(
+                      (point, index) =>
+                        point.trim() !== '' && (
+                          <li key={index} style={{ marginBottom: '6px' }}>
+                            {point.trim()}
+                          </li>
+                        )
+                    )}
+                  </ul>
+                </div>
+              </Col>
+            </Row>
+          </RevealOnce>
+        )}
+
+        {usedTools.length > 0 && (
+          <RevealOnce delay="0.2s">
+            <Row style={{ marginBottom: '60px' }}>
+              <Col lg={12}>
+                <div
+                  style={{
                     background: 'rgba(255, 255, 255, 0.02)',
                     border: '1px solid rgba(255, 255, 255, 0.06)',
                     borderRadius: '16px',
                     padding: '40px',
                     backdropFilter: 'blur(10px)',
                     boxShadow: '0 16px 40px rgba(0, 0, 0, 0.35)'
-                  }}>
-                    <h3 style={{
+                  }}
+                >
+                  <h3
+                    style={{
                       fontSize: '32px',
                       fontWeight: '700',
                       marginBottom: '30px',
@@ -514,138 +566,165 @@ export const ShowCasePage = ({
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
                       fontFamily: "'Centra', sans-serif"
-                    }}>
-                      Tools & Technologies
-                    </h3>
-                    <div style={{
+                    }}
+                  >
+                    Tools & Technologies
+                  </h3>
+
+                  <div
+                    style={{
                       display: 'flex',
                       gap: '12px',
                       flexWrap: 'wrap'
-                    }}>
-                      {usedTools.map((tool, index) => (
-                        <span
-                          key={index}
-                          style={{
-                            background: 'linear-gradient(135deg, #AA367C, #4A2FBD)',
-                            color: '#ffffff',
-                            padding: '10px 20px',
-                            borderRadius: '20px',
-                            fontSize: '14px',
-                            fontWeight: '600',
-                            border: '1px solid rgba(255, 255, 255, 0.2)',
-                            fontFamily: "'Centra', sans-serif",
-                            display: 'inline-block'
-                          }}
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
+                    }}
+                  >
+                    {usedTools.map((tool, index) => (
+                      <span
+                        key={index}
+                        style={{
+                          background: 'linear-gradient(135deg, #AA367C, #4A2FBD)',
+                          color: '#ffffff',
+                          padding: '10px 20px',
+                          borderRadius: '20px',
+                          fontSize: '14px',
+                          fontWeight: '600',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          fontFamily: "'Centra', sans-serif",
+                          display: 'inline-block'
+                        }}
+                      >
+                        {tool}
+                      </span>
+                    ))}
                   </div>
-                </Col>
-              </Row>
-            }
-          </TrackVisibility>
-        }
+                </div>
+              </Col>
+            </Row>
+          </RevealOnce>
+        )}
 
-        {/* CTA BUTTONS */}
-        <TrackVisibility partialVisibility>
-          {({ isVisible }) =>
-            <Row className={isVisible ? "animate__animated animate__fadeInUp" : ""} style={{ marginBottom: '60px' }}>
-              <Col lg={12}>
-                <div style={{
+        <RevealOnce delay="0.25s">
+          <Row style={{ marginBottom: '60px' }}>
+            <Col lg={12}>
+              <div
+                style={{
                   display: 'flex',
                   gap: '20px',
                   justifyContent: 'center',
                   flexWrap: 'wrap',
                   alignItems: 'center'
-                }}>
-                  {hasLink && linkToProject &&
-                    <button
-                      onClick={() => window.open(linkToProject, '_blank')}
-                      style={{
-                        background: 'linear-gradient(135deg, #AA367C, #4A2FBD)',
-                        color: '#ffffff',
-                        border: 'none',
-                        padding: '16px 40px',
-                        fontSize: '16px',
-                        fontWeight: '700',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        transition: '0.3s ease-in-out',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        fontFamily: "'Centra', sans-serif",
-                        letterSpacing: '0.8px',
-                        boxShadow: '0 8px 20px rgba(170, 54, 124, 0.4)'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                        e.currentTarget.style.boxShadow = '0 12px 28px rgba(170, 54, 124, 0.55)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 8px 20px rgba(170, 54, 124, 0.4)';
-                      }}
-                    >
-                      <linkDetails.icon size={linkDetails.size || 20} />
-                      {linkDetails.text}
-                    </button>
-                  }
-
-                  {/* LinkedIn Share */}
+                }}
+              >
+                {hasLink && linkToProject && (
                   <button
-                    onClick={shareOnLinkedIn}
+                    onClick={() => window.open(linkToProject, '_blank')}
                     style={{
-                      background: 'rgba(14, 118, 168, 0.15)',
-                      color: '#0e76a8',
-                      border: '1px solid #0e76a8',
-                      padding: '14px 28px',
+                      background: 'linear-gradient(135deg, #AA367C, #4A2FBD)',
+                      color: '#ffffff',
+                      border: 'none',
+                      padding: '16px 40px',
                       fontSize: '16px',
-                      fontWeight: '600',
+                      fontWeight: '700',
                       borderRadius: '8px',
                       cursor: 'pointer',
                       transition: '0.3s ease-in-out',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '8px',
-                      fontFamily: "'Centra', sans-serif"
+                      gap: '10px',
+                      fontFamily: "'Centra', sans-serif",
+                      letterSpacing: '0.8px',
+                      boxShadow: '0 8px 20px rgba(170, 54, 124, 0.4)'
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'rgba(14, 118, 168, 0.25)';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 12px 28px rgba(170, 54, 124, 0.55)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'rgba(14, 118, 168, 0.15)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = '0 8px 20px rgba(170, 54, 124, 0.4)';
                     }}
                   >
-                    <Linkedin size={18} />
-                    LinkedIn
+                    <linkDetails.icon size={linkDetails.size || 20} />
+                    {linkDetails.text}
                   </button>
+                )}
 
-                  
-                </div>
-              </Col>
-            </Row>
-          }
-        </TrackVisibility>
+                <button
+                  onClick={shareOnLinkedIn}
+                  style={{
+                    background: 'rgba(14, 118, 168, 0.15)',
+                    color: '#0e76a8',
+                    border: '1px solid #0e76a8',
+                    padding: '14px 28px',
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    transition: '0.3s ease-in-out',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontFamily: "'Centra', sans-serif"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(14, 118, 168, 0.25)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(14, 118, 168, 0.15)';
+                  }}
+                >
+                  <Linkedin size={18} />
+                  LinkedIn
+                </button>
+              </div>
+            </Col>
+          </Row>
+        </RevealOnce>
       </Container>
 
-      {/* RESPONSIVE STYLES */}
       <style jsx>{`
-        @media (max-width: 768px) {
-          h1 { font-size: 32px !important; }
-          h3 { font-size: 24px !important; }
-          h4 { font-size: 18px !important; }
-          p { font-size: 16px !important; }
-          div[style*="padding: 40px"] { padding: 24px !important; }
-          button { padding: 12px 20px !important; font-size: 14px !important; }
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            transition: none !important;
+          }
         }
+
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 32px !important;
+          }
+          h3 {
+            font-size: 24px !important;
+          }
+          h4 {
+            font-size: 18px !important;
+          }
+          p {
+            font-size: 16px !important;
+          }
+          div[style*='padding: 40px'] {
+            padding: 24px !important;
+          }
+          button {
+            padding: 12px 20px !important;
+            font-size: 14px !important;
+          }
+        }
+
         @media (max-width: 576px) {
-          h1 { font-size: 28px !important; }
-          h3 { font-size: 20px !important; }
-          div[style*="display: flex"][style*="gap: 20px"] { flex-direction: column !important; }
-          button { width: 100% !important; justify-content: center !important; }
+          h1 {
+            font-size: 28px !important;
+          }
+          h3 {
+            font-size: 20px !important;
+          }
+          div[style*='display: flex'][style*='gap: 20px'] {
+            flex-direction: column !important;
+          }
+          button {
+            width: 100% !important;
+            justify-content: center !important;
+          }
         }
       `}</style>
     </section>

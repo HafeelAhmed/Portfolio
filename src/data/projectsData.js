@@ -15,9 +15,37 @@ import hideAndEscapeGif from "../assets/gifs/lobbyPromo.gif"
 import dragonIslandGif from "../assets/gifs/DragonIslandPromo.gif"
 import propAndHuntGif from "../assets/gifs/PropAndHuntPromo.gif"
 
+//Ares imgaes
+import AresAImg from "../assets/img/Ares2192/A.jpg"
+import AresBImg from "../assets/img/Ares2192/B.jpg"
+import AresCImg from "../assets/img/Ares2192/C.jpg"
+import AresDImg from "../assets/img/Ares2192/D.jpg"
+import AresEImg from "../assets/img/Ares2192/E.jpg"
+import AresFImg from "../assets/img/Ares2192/F.jpg"
+import AresGImg from "../assets/img/Ares2192/G.jpg"
+import AresHImg from "../assets/img/Ares2192/H.jpg"
+import AresIImg from "../assets/img/Ares2192/I.jpg"
+import AresJImg from "../assets/img/Ares2192/J.jpg"
+
+//Ares Gif
+import AresDemoGif from "../assets/gifs/AresDemo2.gif"
+
 export const projectsData = [
-  {
+    {
     id: 1,
+    imageUrls: [AresDemoGif,AresAImg,AresBImg,AresCImg,AresDImg,AresEImg,AresFImg,AresGImg,AresHImg,AresIImg,AresJImg],  // Use imported image
+    title: "Ares2192",
+    category: "Game Dev",
+    role: "Gameplay Developer",
+    description: "A futuristic sci-fi racing experience where players live inside a space station hub and compete in high-speed races on a terraformed Mars environment. The demo focuses on vehicle handling, AI-driven traffic, and seamless navigation between hub and racing areas. Built using Unreal Engine 5 with continuous iteration and gameplay improvements. This project is the intellectual property of Tenderizer Games.",
+    Contributions: "Developed the Buddy AI companion system (currently in development, focused on cosmetic behavior and future interaction systems). Implemented AI behavior for vehicles including movement and responsiveness. Worked on the car navigation system ensuring reliable pathfinding across complex environments. Contributed to NPC behavior systems to enhance world immersion. Improved overall player navigation within the space station by addressing level flow and orientation issues. Collaborated on multiple gameplay and system-level improvements throughout development.",
+    Process: "Joined the project during an early stage where navigation inside the space station was unclear and players frequently got lost. Analyzed player movement patterns and pain points to identify navigation issues. Iteratively improved navigation systems including AI pathing and environmental readability. Developed and refined AI systems such as cars and NPCs using Unreal Engine 5 tools and logic. Contributed to building scalable systems that could be extended as the game evolves. Continuously tested and improved the demo through feedback and internal iteration, focusing on making the experience more intuitive and polished over time.",    
+    usedTools: ["Unreal Engine 5", "C++", "Blueprints"],
+    linkToProject: "https://store.steampowered.com/app/3652410/ARES_2192/",
+    hasLink: true
+  },
+  {
+    id: 2,
     imageUrls: [puzzleGameGif],  // Use imported image
     title: "Momentum Cube - Brain Teaser",
     category: "Game Dev",
@@ -30,7 +58,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 2,
+    id: 3,
     imageUrls: [escapeProtocalGif],  // Use imported image
     title: "Escape Protocol",
     category: "Game Dev",
@@ -43,7 +71,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 3,
+    id: 4,
     imageUrls: [cubeRunnerGif],  // Use imported image
     title: "Endless Cube Runner",
     category: "Game Dev",
@@ -56,7 +84,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 4,
+    id: 5,
     imageUrls: [propAndHuntGif],  // Use imported image
     title: "Hide as Prop (Prototype)",
     category: "Game Dev",
@@ -69,7 +97,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 5,
+    id: 6,
     imageUrls: [tapGameGif],  // Use imported image
     title: "Tap to Boom – Bomb Defusal Game",
     category: "Game Dev",
@@ -82,7 +110,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 6,
+    id: 7,
     imageUrls: [dragonIslandGif],  // Use imported image
     title: "Dragon Scout – AI Behavior Showcase (Prototype)",
     category: "Game Dev",
@@ -95,7 +123,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 7,
+    id: 8,
     imageUrls: [hideAndEscapeGif],  // Use imported image
     title: "Choose Your Side (Prototype)",
     category: "Game Dev",
@@ -110,7 +138,7 @@ export const projectsData = [
 
   //3d project from here
   {
-    id: 8,
+    id: 9,
     imageUrls: [iphoneGif],  // Use imported image
     title: "Smartphone Product Showcase",
     category: "3D Art",
@@ -123,7 +151,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 9,
+    id: 10,
     imageUrls: [carGif],  // Use imported image
     title: "Mustang Cinematic Render",
     category: "3D Art",
@@ -136,7 +164,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 10,
+    id: 11,
     imageUrls: [headphoneImg],  // Use imported image
     title: "Headphone Product Visualization",
     category: "3D Art",
@@ -149,7 +177,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 11,
+    id: 12,
     imageUrls: [micImg],  // Use imported image
     title: "Color Mic – Stylized Product Render",
     category: "3D Art",
@@ -162,7 +190,7 @@ export const projectsData = [
     hasLink: false
   },
   {
-    id: 12,
+    id: 13,
     imageUrls: [robotImg],  // Use imported image
     title: "Lonely Robot – Concept Render",
     category: "3D Art",
