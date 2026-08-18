@@ -1,43 +1,38 @@
-// src/App.js
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import ReactGA from "react-ga4";
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route } from 'react-router-dom';
-import { NavBar } from "./components/NavBar";
-import { Footer } from "./components/Footer";
-import Home from './Home';
-import About from './About';
-import ContactPage from './ContactPage';
-import NotFound from './NotFound.js';
-import ProjectPage from './ProjectPage.js';
-import ProjectDetailPage from './ProjectDetailPage.js';
+import Homepage from "./pages/homepage";
+import About from "./pages/about";
+import Projects from "./pages/projects";
+import Articles from "./pages/articles";
+import ReadArticle from "./pages/readArticle";
+import Contact from "./pages/contact";
+import Notfound from "./pages/404";
+
+import { TRACKING_ID } from "./data/tracking";
+import "./app.css";
 
 function App() {
-  return (
-    <div className="App">
-      <div className="app-wrapper">
-        <NavBar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Portfolio" element={<Home />} />
-            <Route path="/Portfolio/about" element={<About />} />
-            <Route path="/Portfolio/contact" element={<ContactPage />} />
-            
-            {/* ✅ Projects List Page */}
-            <Route path="/Portfolio/projects" element={<ProjectPage />} />
-            
-            {/* ✅ Individual Project Detail Page */}
-            <Route path="/Portfolio/projects/:id" element={<ProjectDetailPage />} />
-            
-            {/* 404 route - this should be the last route */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </div>
-  );
+	useEffect(() => {
+		if (TRACKING_ID !== "") {
+			ReactGA.initialize(TRACKING_ID);
+		}
+	}, []);
+
+	return (
+		<div className="App">
+			<Routes>
+				<Route path="/Portfolio" element={<Homepage />} />
+				<Route path="/Portfolio/about" element={<About />} />
+				<Route path="/Portfolio/projects" element={<Projects />} />
+				<Route path="/Portfolio/articles" element={<Articles />} />
+				<Route path="/Portfolio/article/:slug" element={<ReadArticle />} />
+				<Route path="/Portfolio/contact" element={<Contact />} />
+				<Route path="*" element={<Notfound />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

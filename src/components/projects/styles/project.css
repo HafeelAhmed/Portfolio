@@ -1,0 +1,200 @@
+@import "../../../data/styles.css";
+
+.project {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+
+	border-radius: 16px;
+	overflow: hidden;
+
+	background: var(--background-color);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+
+	transition:
+		transform 0.3s ease,
+		border-color 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+.project a {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	height: 100%;
+
+	text-decoration: none;
+	color: inherit;
+}
+
+.project:hover {
+	transform: translateY(-5px);
+	border-color: rgba(255, 255, 255, 0.18);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================
+   PROJECT CARD
+   ========================= */
+
+.project-card {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	height: 100%;
+}
+
+/* =========================
+   IMAGE
+   ========================= */
+
+.project-image-wrapper {
+	position: relative;
+
+	width: 100%;
+	height: 220px;
+
+	flex-shrink: 0;
+
+	overflow: hidden;
+	background: #111;
+}
+
+.project-image {
+	display: block;
+
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+
+	transition: transform 0.5s ease;
+}
+
+.project:hover .project-image {
+	transform: scale(1.04);
+}
+
+/* =========================
+   ENGINE BADGE
+   ========================= */
+
+.project-engine {
+	position: absolute;
+
+	right: 14px;
+	bottom: 14px;
+
+	padding: 6px 10px;
+
+	font-family: var(--secondary-font);
+	font-size: 11px;
+	font-weight: 700;
+
+	color: #fff;
+	background: rgba(0, 0, 0, 0.75);
+
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 6px;
+
+	backdrop-filter: blur(6px);
+}
+
+/* =========================
+   CONTENT
+   ========================= */
+
+.project-info {
+	display: flex;
+	flex-direction: column;
+
+	flex: 1;
+
+	padding: 18px 20px 20px;
+}
+
+.project-title {
+	margin-bottom: 6px;
+
+	font-family: var(--secondary-font);
+	font-size: 17px;
+	font-weight: 700;
+
+	color: var(--primary-color);
+}
+
+.project-description {
+	margin-bottom: 8px;
+
+	font-size: 13px;
+	line-height: 1.5;
+
+	color: var(--secondary-color);
+}
+
+.project-tech {
+	font-size: 12px;
+	font-weight: 500;
+
+	color: var(--secondary-color);
+	opacity: 0.75;
+}
+
+/* =========================
+   VIEW PROJECT
+   ========================= */
+
+.project-action {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	margin-top: auto;
+
+	padding-top: 18px;
+
+	font-family: var(--secondary-font);
+	font-size: 13px;
+	font-weight: 600;
+
+	color: var(--secondary-color);
+
+	transition: color 0.2s ease;
+}
+
+.project-action-icon {
+	width: 14px;
+	height: 14px;
+
+	transition: transform 0.2s ease;
+}
+
+.project:hover .project-action {
+	color: var(--primary-color);
+}
+
+.project:hover .project-action-icon {
+	transform: translateX(3px);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+	.project-image-wrapper {
+		height: 190px;
+	}
+
+	.project-info {
+		padding: 16px;
+	}
+
+	.project-title {
+		font-size: 16px;
+	}
+}
