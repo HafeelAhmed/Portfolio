@@ -38,15 +38,12 @@ const Projects = () => {
 						</div>
 					</div>
 					<div className="projects-container">
-						<div className="title projects-title">
-							Things I’ve made trying to put my dent in the
-							universe.
-						</div>
+						<div className="title projects-title">Projects</div>
 
 						<div className="subtitle projects-subtitle">
-							Presenting a list of personal game development projects I have worked on
-							to showcase my experience in gameplay programming, systems design, mechanics, and multiplayer development.
-							The technologies utilized include Unreal Engine 5, C++, and Blueprints.
+							Games and prototypes I've built, mostly in Unreal
+							Engine 5, plus a C++ simulation project. Open any
+							of them to see what I built and how.
 						</div>
 
 						<div className="projects-list">

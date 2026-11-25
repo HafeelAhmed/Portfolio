@@ -8,21 +8,25 @@ import INFO from "../../data/user";
 
 import "./styles/allProjects.css";
 
-const AllProjects = ({ limit }) => {
-	const projects = limit
-		? INFO.projects.slice(0, limit)
+// `slugs` picks specific projects in the given order; otherwise all are shown.
+const AllProjects = ({ limit, slugs }) => {
+	const filtered = slugs
+		? slugs
+				.map((slug) => INFO.projects.find((p) => p.slug === slug))
+				.filter(Boolean)
 		: INFO.projects;
 
-	const hasMoreProjects =
-		limit && INFO.projects.length > limit;
+	const projects = limit ? filtered.slice(0, limit) : filtered;
+
+	const hasMoreProjects = limit && filtered.length > limit;
 
 	return (
 		<div className="all-projects-section">
 			<div className="all-projects-container">
-				{projects.map((project, index) => (
+				{projects.map((project) => (
 					<div
 						className="all-projects-project"
-						key={index}
+						key={project.slug}
 					>
 						<Project
 							image={project.image}

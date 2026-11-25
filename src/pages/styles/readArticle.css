@@ -168,11 +168,7 @@
    PROJECT LINKS
    ========================================= */
 
-/*
-   Very specific selector intentionally used here
-   so your global <a> styles cannot turn these
-   back into normal text links.
-*/
+/* Specific selectors so the global <a> styles don't override these buttons. */
 
 .read-article-body
 .article-content

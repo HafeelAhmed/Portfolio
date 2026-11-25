@@ -40,33 +40,28 @@ const Contact = () => {
 					</div>
 
 					<div className="contact-container">
-						<div className="title contact-title">
-							Let's Get in Touch
-						</div>
+						<div className="title contact-title">Contact</div>
 
 						<div className="subtitle contact-subtitle">
-							I'm always open to discussing game development,
-							gameplay programming, Unreal Engine, multiplayer
-							systems, or interesting opportunities.
-							<br />
-							<br />
-							If you'd like to get in touch, feel free to reach
-							out through email or Discord. I'll do my best to
-							get back to you as soon as possible.
-							<br />
-							<br />
-
-							You can email me directly at{" "}
+							Email is the quickest way to reach me:{" "}
 							<a href={`mailto:${INFO.main.email}`}>
 								{INFO.main.email}
 							</a>
-							{" "}or connect with me on Discord at{" "}
+							. I'm also on{" "}
 							<a
 								href={INFO.socials.discord}
 								target="_blank"
 								rel="noreferrer"
 							>
 								Discord
+							</a>{" "}
+							and{" "}
+							<a
+								href={INFO.socials.linkedin}
+								target="_blank"
+								rel="noreferrer"
+							>
+								LinkedIn
 							</a>
 							.
 						</div>

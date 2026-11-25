@@ -59,7 +59,7 @@ const Articles = () => {
 											key={data.slug}
 										>
 											<Article
-												date={data.date}
+												date={data.meta}
 												title={data.title}
 												description={data.description}
 												link={getArticleLink(data.slug)}

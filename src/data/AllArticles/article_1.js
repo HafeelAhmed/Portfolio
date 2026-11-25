@@ -4,91 +4,57 @@ export function article_1() {
 	return {
 		slug: "ares2192",
 
-		date: "7 May 2023",
+		meta: "Tenderizer Games",
 
-		title: "Project 1: Showcase & Overview",
+		title: "ARES 2192",
 
 		description:
-			"A futuristic sci-fi racing experience built in Unreal Engine 5, featuring a space station hub, high-speed racing on Mars, AI-driven vehicles, NPC systems, and improved player navigation.",
+			"Sci-fi racer built in Unreal Engine 5, with a space station hub and races on a terraformed Mars. I work on its vehicle AI, NPCs, Buddy AI and navigation.",
 
 		keywords: [
+			"ARES 2192",
 			"Unreal Engine 5",
 			"C++",
 			"Blueprints",
-			"AI",
-			"Game Development",
-			"Racing Game",
-			"Portfolio Project",
+			"Vehicle AI",
+			"Navigation",
+			"Tenderizer Games",
 		],
 
 		body: (
 			<div className="article-content">
-
-				{/* HERO INTRO */}
-
 				<div className="article-intro">
 					<p className="article-lead">
-						A futuristic sci-fi racing experience where players
-						live inside a space station hub and compete in
-						high-speed races across a terraformed Mars
-						environment.
+						ARES 2192 is a sci-fi racing game. Between races you
+						live on a space station, and the races themselves
+						happen on a terraformed Mars. I've been on the team
+						since an early stage of the demo, working mainly on AI
+						and navigation.
 					</p>
 
 					<div className="project-tech-stack">
 						<span className="tech-badge">Unreal Engine 5</span>
 						<span className="tech-badge">C++</span>
 						<span className="tech-badge">Blueprints</span>
-						<span className="tech-badge">AI</span>
 					</div>
 				</div>
 
-
-				{/* HERO IMAGE */}
-
 				<figure className="article-figure article-figure-large">
-					<img
-						src="/Portfolio/images/Ares/AresThumbnail.jpg"
-						alt="Ares 2192 gameplay"
+					<video
+						src="/Portfolio/videos/ares-demo.mp4"
+						poster="/Portfolio/images/Ares/AresThumbnail.jpg"
+						autoPlay
+						muted
+						loop
+						playsInline
+						controls
 					/>
-
-					<figcaption>
-						A glimpse of the futuristic racing environment.
-					</figcaption>
 				</figure>
 
-
-				{/* OVERVIEW */}
-
-				<section className="article-section">
-
-					<div className="section-label">
-						01 — Overview
-					</div>
-
-					<h2>Building a futuristic racing experience</h2>
-
-					<p>
-						The project combines a futuristic space station
-						hub with high-speed racing environments located
-						on Mars.
-					</p>
-
-					<p>
-						The demo focuses on vehicle handling, AI-driven
-						traffic, NPC behavior, and seamless navigation
-						between the station and racing environments.
-					</p>
-
-				</section>
-
-
-				{/* PROJECT INFO */}
-
 				<div className="project-info-grid">
-
 					<div className="project-info-card">
-						<span>Engine</span>
-						<strong>Unreal Engine 5</strong>
+						<span>Studio</span>
+						<strong>Tenderizer Games</strong>
 					</div>
 
 					<div className="project-info-card">
@@ -97,295 +63,190 @@ export function article_1() {
 					</div>
 
 					<div className="project-info-card">
-						<span>Focus</span>
-						<strong>AI & Navigation</strong>
+						<span>Engine</span>
+						<strong>Unreal Engine 5</strong>
 					</div>
 
 					<div className="project-info-card">
-						<span>IP</span>
-						<strong>Tenderizer Games</strong>
+						<span>My focus</span>
+						<strong>AI & navigation</strong>
 					</div>
-
 				</div>
 
-
-				{/* CONTRIBUTIONS */}
-
 				<section className="article-section">
-
-					<div className="section-label">
-						02 — Contributions
-					</div>
-
-					<h2>What I worked on</h2>
-
-					<p>
-						My work focused primarily on gameplay systems,
-						AI behavior, navigation, and improving the
-						player's ability to understand and move through
-						the world.
-					</p>
+					<h2>What I work on</h2>
 
 					<div className="feature-list">
-
 						<div className="feature-item">
 							<span className="feature-number">01</span>
-
 							<div>
-								<h3>Buddy AI</h3>
-
+								<h3>Vehicle AI</h3>
 								<p>
-									Developed the Buddy AI companion
-									system, currently focused on
-									cosmetic behavior with future
-									interaction systems planned.
+									Movement and responsiveness for the
+									AI-driven cars.
 								</p>
 							</div>
 						</div>
-
 
 						<div className="feature-item">
 							<span className="feature-number">02</span>
-
 							<div>
-								<h3>Vehicle AI</h3>
-
+								<h3>Car navigation</h3>
 								<p>
-									Implemented AI behavior for
-									vehicles, focusing on movement,
-									responsiveness, and believable
-									behavior.
+									Pathfinding for the cars, so they can get
+									around the tracks and the station's more
+									complicated areas without getting stuck.
 								</p>
 							</div>
 						</div>
-
 
 						<div className="feature-item">
 							<span className="feature-number">03</span>
-
 							<div>
-								<h3>Navigation</h3>
-
+								<h3>NPCs</h3>
 								<p>
-									Worked on car navigation systems
-									to provide reliable pathfinding
-									across complex environments.
+									Behaviour for the NPCs that fill the
+									station, so it feels lived in.
 								</p>
 							</div>
 						</div>
-
 
 						<div className="feature-item">
 							<span className="feature-number">04</span>
-
 							<div>
-								<h3>NPC Systems</h3>
-
+								<h3>Buddy AI</h3>
 								<p>
-									Contributed to NPC behavior systems
-									to improve immersion throughout
-									the space station.
+									A companion system, still in
+									development. Right now it covers
+									cosmetic behaviour; interactions come
+									next.
 								</p>
 							</div>
 						</div>
-
 					</div>
-
 				</section>
-
-
-				{/* VEHICLE AI */}
-
-				<section className="article-section">
-
-					<div className="section-label">
-						03 — Vehicle AI
-					</div>
-
-					<h2>Making the vehicles feel alive</h2>
-
-					<p>
-						One of my responsibilities was working on the
-						behavior of AI-controlled vehicles. The goal was
-						to make their movement feel responsive while
-						remaining predictable enough for the player.
-					</p>
-
-				</section>
-
-
-				<figure className="article-figure">
-					<img
-						src="/Portfolio/images/Ares/aresGameplay1.jpg"
-						alt="Vehicle AI system"
-					/>
-
-					<figcaption>
-						AI-controlled vehicles navigating the environment.
-					</figcaption>
-				</figure>
-
-
-				{/* NAVIGATION */}
-
-				<section className="article-section">
-
-					<div className="section-label">
-						04 — Navigation
-					</div>
-
-					<h2>Improving player navigation</h2>
-
-					<p>
-						When I joined the project, navigation inside the
-						space station was one of the main pain points.
-						Players could easily become disoriented and
-						struggle to understand where they needed to go.
-					</p>
-
-					<p>
-						I analyzed the movement patterns and identified
-						several areas where environmental readability
-						could be improved. I then iterated on navigation
-						systems and level flow to make the environment
-						easier to understand.
-					</p>
-
-				</section>
-
-
-				{/* SCREENSHOT GRID */}
 
 				<div className="article-image-grid">
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/ares-A.jpg"
+							alt="Racing gameplay"
+						/>
+					</figure>
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/ares-B.jpg"
+							alt="Overtaking an AI car"
+						/>
+					</figure>
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/ares-C.jpg"
+							alt="Track by the water"
+						/>
+					</figure>
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/aresGameplay1.jpg"
+							alt="AI cars on track"
+						/>
+					</figure>
+				</div>
 
+				<section className="article-section">
+					<h2>Getting around the space station</h2>
+
+					<p>
+						When I joined, the space station was hard to navigate.
+						Players regularly got lost and couldn't tell where they
+						were supposed to go next.
+					</p>
+
+					<p>
+						I looked at where players were getting stuck and
+						turned around, then worked through those spots one at
+						a time: AI pathing, level flow, and making the
+						environment easier to read so the way forward is
+						clearer.
+					</p>
+				</section>
+
+				<div className="article-image-grid">
 					<figure>
 						<img
 							src="/Portfolio/images/Ares/aresGameplaySpace1.jpg"
-							alt="Space station environment"
+							alt="Space station"
 						/>
-
-						<figcaption>
-							Space station environment
-						</figcaption>
+						<figcaption>The space station hub</figcaption>
 					</figure>
-
-
 					<figure>
 						<img
 							src="/Portfolio/images/Ares/mall.jpg"
-							alt="Space station navigation"
+							alt="Station mall area"
 						/>
-
-						<figcaption>
-							Navigation and level flow
-						</figcaption>
+						<figcaption>The mall area of the station</figcaption>
 					</figure>
-
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/ares-F.jpg"
+							alt="Station interior"
+						/>
+						<figcaption>Inside the station</figcaption>
+					</figure>
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/aresGameplaySpace2.jpg"
+							alt="Space station exterior"
+						/>
+					</figure>
 				</div>
 
-
-				{/* PROCESS */}
-
 				<section className="article-section">
+					<h2>How the work goes</h2>
 
-					<div className="section-label">
-						05 — Process
-					</div>
-
-					<h2>From problem to solution</h2>
-
-					<div className="process-grid">
-
-						<div>
-							<span>01</span>
-							<h3>Identify</h3>
-							<p>
-								Analyze player behavior and identify
-								the biggest usability problems.
-							</p>
-						</div>
-
-						<div>
-							<span>02</span>
-							<h3>Prototype</h3>
-							<p>
-								Test different gameplay and navigation
-								solutions inside Unreal Engine.
-							</p>
-						</div>
-
-						<div>
-							<span>03</span>
-							<h3>Iterate</h3>
-							<p>
-								Use feedback and testing to refine
-								the systems.
-							</p>
-						</div>
-
-						<div>
-							<span>04</span>
-							<h3>Polish</h3>
-							<p>
-								Improve responsiveness, readability,
-								and overall player experience.
-							</p>
-						</div>
-
-					</div>
-
+					<p>
+						The game is still changing, so I try to build systems
+						that can be extended rather than ones that only solve
+						today's problem. Changes go into the demo, get tested
+						internally, and come back with feedback for the next
+						pass.
+					</p>
 				</section>
 
-
-				{/* LARGE SCREENSHOT */}
-
-				<figure className="article-figure article-figure-large">
-					<img
-						src="/Portfolio/images/Ares/thumbnail2.jpg"
-						alt="Mars racing environment"
-					/>
-
-					<figcaption>
-						Racing environment on the terraformed Mars surface.
-					</figcaption>
-				</figure>
-
-
-				{/* TECHNOLOGY */}
-
-				<section className="article-section">
-
-					<div className="section-label">
-						06 — Technology
-					</div>
-
-					<h2>Tools & technologies</h2>
-
-					<div className="project-tech-stack project-tech-stack-large">
-						<span className="tech-badge">Unreal Engine 5</span>
-						<span className="tech-badge">C++</span>
-						<span className="tech-badge">Blueprints</span>
-						<span className="tech-badge">AI</span>
-						<span className="tech-badge">Navigation</span>
-					</div>
-
-				</section>
-
-
-
-
-				{/* LINKS */}
+				<div className="article-image-grid">
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/ares-H.jpg"
+							alt="Snowy section of track"
+						/>
+					</figure>
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/ares-J.jpg"
+							alt="Tunnel section"
+						/>
+					</figure>
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/ares-E.jpg"
+							alt="Mars terrain"
+						/>
+					</figure>
+					<figure>
+						<img
+							src="/Portfolio/images/Ares/thumbnail2.jpg"
+							alt="Racing on Mars"
+						/>
+					</figure>
+				</div>
 
 				<section className="article-section article-section-last">
-
-					<div className="section-label">
-						07 — Project
-					</div>
-
-					<h2>Explore the project</h2>
+					<p>
+						ARES 2192 is the intellectual property of Tenderizer
+						Games.
+					</p>
 
 					<div className="project-links">
-
 						<a
 							href="https://store.steampowered.com/app/3652410/ARES_2192/"
 							target="_blank"
@@ -393,12 +254,9 @@ export function article_1() {
 							className="project-link"
 						>
 							<span className="project-link-text">
-								Play on Steam
+								Steam page
 							</span>
-
-							<span className="project-link-arrow">
-								↗
-							</span>
+							<span className="project-link-arrow">↗</span>
 						</a>
 
 						<a
@@ -408,19 +266,15 @@ export function article_1() {
 							className="project-link"
 						>
 							<span className="project-link-text">
-								LinkedIn
+								LinkedIn post
 							</span>
-
-							<span className="project-link-arrow">
-								↗
-							</span>
+							<span className="project-link-arrow">↗</span>
 						</a>
-
 					</div>
-
 				</section>
-
 			</div>
 		),
 	};
 }
+
+export default article_1;

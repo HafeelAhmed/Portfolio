@@ -2,36 +2,46 @@ const SEO = [
 	{
 		page: "home",
 		description:
-			"I am a backend developer with expertise in Node.js. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Hafeel Ahmed, gameplay programmer working in Unreal Engine 5 with C++ and Blueprints. Currently on ARES 2192 at Tenderizer Games.",
+		keywords: [
+			"Hafeel Ahmed",
+			"Gameplay Programmer",
+			"Unreal Engine 5",
+			"C++",
+			"Game Developer",
+		],
 	},
 
 	{
 		page: "about",
 		description:
-			"I am a backend developer with expertise in Node.js. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"About Hafeel Ahmed: gameplay programmer with three years in Unreal Engine 5, working on AI and navigation for ARES 2192.",
+		keywords: ["Hafeel Ahmed", "Gameplay Programmer", "Unreal Engine 5", "C++"],
 	},
 
 	{
 		page: "articles",
-		description:
-			"Chronological collection of my long-form thoughts on programming, leadership, product design, and more.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+		description: "Write-ups of projects by Hafeel Ahmed.",
+		keywords: ["Hafeel Ahmed", "Game Development", "Unreal Engine 5"],
 	},
 
 	{
 		page: "projects",
 		description:
-			"I've worked on a variety of projects over the years and I'm proud of the progress I've made. Many of these projects are open-source and available for others to explore and contribute to.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Games, prototypes and a C++ simulation project by Hafeel Ahmed, mostly built in Unreal Engine 5 with C++ and Blueprints.",
+		keywords: [
+			"Hafeel Ahmed",
+			"Game Projects",
+			"Unreal Engine 5",
+						"C++",
+			"Blueprints",
+		],
 	},
 
 	{
 		page: "contact",
-		description:
-			"If you're interested in collaborating on a project, feel free to reach out to me. I'm always open to new ideas and opportunities.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+		description: "How to contact Hafeel Ahmed.",
+		keywords: ["Hafeel Ahmed", "Contact", "Game Developer"],
 	},
 ];
 

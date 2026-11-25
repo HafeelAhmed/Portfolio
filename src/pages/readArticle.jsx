@@ -9,6 +9,7 @@ import Notfound from "./404";
 
 import INFO from "../data/user";
 import myArticles from "../data/articles";
+import { projectToArticle } from "../components/projects/projectArticle";
 
 import "./styles/readArticle.css";
 import "./styles/article-content.css";
@@ -17,94 +18,24 @@ const ReadArticle = () => {
 	const navigate = useNavigate();
 	const { slug } = useParams();
 
-	// Find custom article by slug
+	// A hand-written article wins; otherwise build the page from the
+	// project's data in user.js.
 	const customArticle = myArticles.find(
 		(article) => article().slug === slug,
 	);
-
-	// Fallback for numeric project URLs
-	const projectIndex = parseInt(slug, 10) - 1;
-	const projectInfo = INFO.projects[projectIndex];
+	const project = INFO.projects.find((p) => p.slug === slug);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [slug]);
 
-	// Nothing found
-	if (!customArticle && !projectInfo) {
+	if (!customArticle && !project) {
 		return <Notfound />;
 	}
 
-	// Custom article
 	const articleData = customArticle
 		? customArticle()
-		: {
-				date: "7 May 2023",
-				title: projectInfo?.title || `Project ${slug}`,
-				description:
-					projectInfo?.description ||
-					"A modern project built to deliver high performance, clean design, and smooth user experience.",
-				keywords: [
-					projectInfo?.title || "Project",
-					"Portfolio",
-					"React",
-				],
-				body: (
-					<React.Fragment>
-						<div className="article-content">
-							<h2>
-								About {projectInfo?.title || `Project ${slug}`}
-							</h2>
-
-							<p>
-								{projectInfo?.description ||
-									"This project showcases modern web application development practices with clean code architecture and responsive design."}
-							</p>
-
-							<div className="project-tech-stack">
-								<span className="tech-badge">React</span>
-								<span className="tech-badge">JavaScript</span>
-								<span className="tech-badge">CSS3</span>
-								<span className="tech-badge">HTML5</span>
-							</div>
-
-							<h3>Key Features</h3>
-
-							<ul>
-								<li>
-									Responsive & modern user interface design.
-								</li>
-
-								<li>
-									Seamless routing and client-side page
-									transitions.
-								</li>
-
-								<li>
-									Optimized performance and scalable
-									architecture.
-								</li>
-							</ul>
-
-							<h3>Project Details</h3>
-
-							<p>
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit. Sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua.
-							</p>
-
-							{projectInfo?.logo && (
-								<img
-									src={projectInfo.logo}
-									alt={projectInfo.title}
-									className="project-banner"
-								/>
-							)}
-						</div>
-					</React.Fragment>
-				),
-			};
+		: projectToArticle(project);
 
 	return (
 		<React.Fragment>
@@ -146,7 +77,7 @@ const ReadArticle = () => {
 						{/* Back Button */}
 						<div className="read-article-back">
 							<img
-								src="../back-button.png"
+								src="/Portfolio/back-button.png"
 								alt="Back"
 								className="read-article-back-button"
 								onClick={() => navigate(-1)}
@@ -156,11 +87,13 @@ const ReadArticle = () => {
 						{/* Article Content */}
 						<div className="read-article-wrapper">
 
-							<div className="read-article-date-container">
-								<div className="read-article-date">
-									{articleData.date}
+							{articleData.meta && (
+								<div className="read-article-date-container">
+									<div className="read-article-date">
+										{articleData.meta}
+									</div>
 								</div>
-							</div>
+							)}
 
 							<div className="title read-article-title">
 								{articleData.title}

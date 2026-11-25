@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { faMailBulk, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faTwitter,
-	faGithub,
-	faStackOverflow,
-	faInstagram,
-	faDiscord,
-} from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
@@ -103,8 +98,8 @@ const Homepage = () => {
 								<div className="homepage-image-container">
 									<div className="homepage-image-wrapper">
 										<img
-											src="Portfolio/homepage.jpg"
-											alt="about"
+											src="/Portfolio/homepage.jpg"
+											alt="Hafeel Ahmed"
 											className="homepage-image"
 										/>
 									</div>
@@ -113,48 +108,18 @@ const Homepage = () => {
 						</div>
 
 						<div className="homepage-socials">
-							{/*<a
-								href={INFO.socials.twitter}
+							<a
+								href={INFO.socials.linkedin}
 								target="_blank"
 								rel="noreferrer"
 							>
 								<FontAwesomeIcon
-									icon={faTwitter}
+									icon={faLinkedin}
 									className="homepage-social-icon"
 								/>
 							</a>
 							<a
-								href={INFO.socials.github}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faGithub}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={INFO.socials.stackoverflow}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faStackOverflow}
-									className="homepage-social-icon"
-								/>
-							</a>
-							<a
-								href={INFO.socials.instagram}
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FontAwesomeIcon
-									icon={faInstagram}
-									className="homepage-social-icon"
-								/>
-							</a> */}
-														<a
-								href={`mailto:${INFO.socials.discord}`}
+								href={INFO.socials.discord}
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -176,7 +141,16 @@ const Homepage = () => {
 						</div>
 
 						<div className="homepage-projects">
-							<AllProjects limit={3}/>
+							<AllProjects slugs={INFO.homepage.featured} />
+							<div className="projects-see-more">
+								<Link to="/Portfolio/projects">
+									<span>See all projects</span>
+									<FontAwesomeIcon
+										icon={faArrowRight}
+										className="projects-see-more-icon"
+									/>
+								</Link>
+							</div>
 						</div>
 
 						<div className="homepage-after-title">

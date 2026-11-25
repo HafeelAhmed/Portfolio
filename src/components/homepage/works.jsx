@@ -15,7 +15,7 @@ const Works = () => {
 					<div className="works-body">
 						<div className="work">
 							<img
-								src="./Portfolio/TenderizerGames.jpg"
+								src="/Portfolio/TenderizerGames.jpg"
 								alt="TenderizerGames"
 								className="work-image"
 							/>
@@ -25,7 +25,6 @@ const Works = () => {
 							</div>
 							<div className="work-duration">2026 - Present</div>
 						</div>
-
 					</div>
 				}
 			/>

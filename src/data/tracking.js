@@ -1,3 +1,3 @@
 // Google Analytics Tracking ID
-// https://github.com/truethari/reactfolio#-google-analytics
+// Leave empty to disable analytics.
 export const TRACKING_ID = "";
