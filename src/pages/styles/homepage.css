@@ -5,6 +5,11 @@
 	justify-content: left;
 	align-items: center;
 	padding-top: 130px;
+	/* Reserve the full logo height. The logo shrinks and turns fixed while
+	   scrolling; without this the page height changes with it, and near the
+	   bottom of the page the scroll position and logo size feed back into
+	   each other and the page jitters. */
+	height: 80px;
 }
 
 .homepage-container {
