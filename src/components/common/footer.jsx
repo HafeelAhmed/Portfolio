@@ -27,7 +27,7 @@ const Footer = () => {
 
 				<div className="footer-credits">
 					<div className="footer-credits-text">
-						© 2026 Hafeel Ahmed
+						© 2026 Hafeel Ahmed · Thanjavur, India
 					</div>
 				</div>
 			</div>

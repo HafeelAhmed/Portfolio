@@ -1,22 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faFaceSadTear } from "@fortawesome/free-regular-svg-icons";
 
 import NavBar from "../components/common/navBar";
+import Seo from "../components/common/seo";
 import Logo from "../components/common/logo";
 
-import INFO from "../data/user";
 
 import "./styles/404.css";
 
 const Notfound = () => {
-	useEffect(() => {
-		document.title = `404 | ${INFO.main.title}`;
-	}, []);
-
 	return (
 		<React.Fragment>
+			<Seo
+				title="Page not found"
+				description="This page does not exist."
+				path="/Portfolio/404"
+				noindex
+			/>
 			<div className="not-found page-content">
 				<NavBar />
 				<div className="content-wrapper">
@@ -31,11 +33,7 @@ const Notfound = () => {
 								Oops! <FontAwesomeIcon icon={faFaceSadTear} />
 							</div>
 							<div className="not-found-message">
-								We can't seem to find the page you're looking
-								for.
-								<br />
-								The requested URL "{window.location.href}" was
-								not found on this server.
+								The page you're looking for doesn't exist.
 							</div>
 							<a href="/Portfolio" className="not-found-link">
 								Go back to the home page

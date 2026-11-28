@@ -2,7 +2,7 @@ import { getArticleLink } from "./links";
 
 const INFO = {
 	main: {
-		title: "Hafeel Ahmed - Portfolio",
+		title: "Hafeel Ahmed | Gameplay Programmer, Unreal Engine 5",
 		name: "Hafeel Ahmed S",
 		email: "hafeelahmed06@gmail.com",
 		logo: "/Portfolio/logo.png",
@@ -21,7 +21,7 @@ const INFO = {
 	homepage: {
 		title: "Gameplay Programmer & Unreal Engine Developer",
 		description:
-			"I write gameplay code in Unreal Engine 5, in C++ and Blueprints. Right now I'm at Tenderizer Games, working on AI and navigation for ARES 2192.",
+			"I write gameplay code in Unreal Engine 5, in C++ and Blueprints. Right now I'm at Tenderizer Games, working on AI and navigation for ARES 2192. I'm based in Thanjavur, Tamil Nadu, India.",
 		// Projects shown on the homepage, in this order.
 		featured: ["ares2192", "momentum-cube", "life-simulator"],
 	},
@@ -30,7 +30,8 @@ const INFO = {
 		title: "Hafeel Ahmed, gameplay programmer",
 		description: (
 			<>
-				I'm a gameplay programmer from India. I've spent a little over
+				I'm a gameplay programmer and Unreal Engine developer based in
+				Thanjavur, Tamil Nadu, India. I've spent a little over
 				three years building games in <strong>Unreal Engine 5</strong>,
 				mostly in <strong>C++ and Blueprints</strong>.
 				<br />

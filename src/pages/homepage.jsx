@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
 
 import { Link } from "react-router-dom";
 import { faMailBulk, faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +8,7 @@ import { faLinkedin, faDiscord } from "@fortawesome/free-brands-svg-icons";
 import Logo from "../components/common/logo";
 import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
+import Seo, { personJsonLd } from "../components/common/seo";
 import Works from "../components/homepage/works";
 import AllProjects from "../components/projects/allProjects";
 
@@ -64,14 +64,13 @@ const Homepage = () => {
 
 	return (
 		<React.Fragment>
-			<Helmet>
-				<title>{INFO.main.title}</title>
-				<meta name="description" content={currentSEO.description} />
-				<meta
-					name="keywords"
-					content={currentSEO.keywords.join(", ")}
-				/>
-			</Helmet>
+			<Seo
+				title={currentSEO.title}
+				description={currentSEO.description}
+				path={currentSEO.path}
+				keywords={currentSEO.keywords}
+				jsonLd={personJsonLd}
+			/>
 
 			<div className="page-content">
 				<NavBar active="home" />

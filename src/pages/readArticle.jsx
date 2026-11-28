@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
 
 import NavBar from "../components/common/navBar";
+import Seo from "../components/common/seo";
 import Footer from "../components/common/footer";
 import Logo from "../components/common/logo";
 import Notfound from "./404";
@@ -39,25 +39,14 @@ const ReadArticle = () => {
 
 	return (
 		<React.Fragment>
-			<Helmet>
-				<title>
-					{`${articleData.title} | ${INFO.main.title}`}
-				</title>
-
-				<meta
-					name="description"
-					content={articleData.description}
-				/>
-
-				<meta
-					name="keywords"
-					content={
-						articleData.keywords
-							? articleData.keywords.join(", ")
-							: ""
-					}
-				/>
-			</Helmet>
+			<Seo
+				title={articleData.title}
+				description={articleData.description}
+				path={`/Portfolio/article/${slug}`}
+				image={project?.image}
+				type="article"
+				keywords={articleData.keywords}
+			/>
 
 			<div className="page-content">
 				<NavBar />
