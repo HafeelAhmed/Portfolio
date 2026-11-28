@@ -23,7 +23,7 @@ const INFO = {
 		description:
 			"I write gameplay code in Unreal Engine 5, in C++ and Blueprints. Right now I'm at Tenderizer Games, working on AI and navigation for ARES 2192.",
 		// Projects shown on the homepage, in this order.
-		featured: ["ares2192", "momentum-cube", "grid-evolution"],
+		featured: ["ares2192", "momentum-cube", "life-simulator"],
 	},
 
 	about: {
@@ -36,10 +36,10 @@ const INFO = {
 				<br />
 				<br />
 				I currently work at <strong>Tenderizer Games</strong> on{" "}
-				<strong>ARES 2192</strong>, a sci-fi racer. My part of it is AI
-				and navigation: vehicle AI, car pathfinding, NPC behaviour, a
-				Buddy AI companion, and making the space station hub easier to
-				find your way around.
+				<strong>ARES 2192</strong>, a sci-fi racer. I work on its AI and
+				navigation, which covers vehicle AI, car pathfinding, NPC
+				behaviour and a Buddy AI companion. I've also made the space
+				station hub easier to find your way around.
 				<br />
 				<br />
 				I have a B.Tech in Computer Science and Engineering, specialised
@@ -92,10 +92,20 @@ const INFO = {
 			link: getArticleLink("grid-evolution"),
 		},
 		{
+			slug: "life-simulator",
+			title: "Life Simulator",
+			description:
+				"My Grid Evolution simulation running in Unreal Engine 5, in 3D and with smooth movement instead of a grid.",
+			tech: "Unreal Engine 5 • C++20",
+			engine: "UE5",
+			image: "/Portfolio/images/life-simulator/start.jpg",
+			link: getArticleLink("life-simulator"),
+		},
+		{
 			slug: "dragon-scout",
 						title: "Dragon Scout",
 			description:
-				"AI prototype: an enemy that patrols, spots the player, chases and attacks, built on AI Perception and Behavior Trees.",
+				"An enemy AI prototype built on AI Perception and Behavior Trees. The enemy patrols, spots the player, chases them and attacks.",
 			tech: "Unreal Engine 5 • Behavior Trees • AI Perception",
 			engine: "UE5",
 			image: "/Portfolio/images/projects/dragon-scout.jpg",
@@ -127,7 +137,7 @@ const INFO = {
 			slug: "choose-your-side",
 						title: "Choose Your Side",
 			description:
-				"Multiplayer prototype: host or join a session, pick Red or Blue in the lobby, and spawn into the match on that team.",
+				"A multiplayer prototype where players host or join a session, pick Red or Blue in the lobby and spawn into the match on that team.",
 			tech: "Unreal Engine 5 • Online Subsystem • Replication",
 			engine: "UE5",
 			image: "/Portfolio/images/projects/choose-your-side.jpg",
@@ -142,7 +152,7 @@ const INFO = {
 				"Replication",
 			],
 			overview: [
-				"A prototype of the basic multiplayer flow: create or join a session, choose a team in the lobby, and start the match with every client agreeing on who is on which side.",
+				"A prototype of the basic multiplayer flow. Players create or join a session, choose a team in the lobby and start the match, and every client agrees on who is on which side.",
 			],
 			contributions: [
 				"Hosting and joining sessions through the Online Subsystem.",
@@ -151,7 +161,7 @@ const INFO = {
 				"Moving everyone from the lobby into the match with their team intact.",
 			],
 			process: [
-				"Each player's team is a replicated variable, and the GameMode, PlayerState and GameState together manage the assignments, so the flow goes lobby, team pick, match start.",
+				"Each player's team is a replicated variable. The GameMode, PlayerState and GameState manage the assignments between them, from the lobby through to the start of the match.",
 			],
 		},
 		{
@@ -185,7 +195,7 @@ const INFO = {
 			slug: "escape-protocol",
 						title: "Escape Protocol",
 			description:
-				"Small escape game set on a spaceship: finish the tasks around the ship to get out. Inspired by Among Us.",
+				"A small escape game inspired by Among Us. You finish tasks around a spaceship to get out.",
 			tech: "Unreal Engine 5 • Blueprints • MetaSounds",
 			engine: "UE5",
 			image: "/Portfolio/images/projects/escape-protocol.jpg",
@@ -211,7 +221,7 @@ const INFO = {
 			slug: "hide-as-prop",
 						title: "Hide as Prop",
 			description:
-				"Prop-hunt style prototype: turn into objects around you to hide, and drop decoy copies of yourself to fool the enemy.",
+				"A prop-hunt style prototype. You turn into objects around you to hide, and drop decoy copies of yourself to fool the enemy.",
 			tech: "Unreal Engine 5 • Blueprints",
 			engine: "UE5",
 			image: "/Portfolio/images/projects/hide-as-prop.jpg",
@@ -221,7 +231,7 @@ const INFO = {
 			role: "Gameplay programmer, level designer",
 			tools: ["Unreal Engine 5", "Blueprints"],
 			overview: [
-				"A prototype of a stealth idea: the player can copy the shape of nearby objects to blend in, and spawn decoys of themselves.",
+				"A prototype of a stealth idea where the player can copy the shape of nearby objects to blend in and spawn decoys of themselves.",
 			],
 			contributions: [
 				"Transforming into a nearby object by swapping the player's mesh and collision.",
@@ -260,7 +270,7 @@ const INFO = {
 			slug: "tap-to-boom",
 						title: "Tap to Boom",
 			description:
-				"2D arcade game in Unity: bombs fall, tap them before they land. Three misses and you're out.",
+				"A 2D arcade game in Unity. Bombs fall and you tap them before they land, and three misses end the game.",
 			tech: "Unity • C#",
 			engine: "Unity",
 			image: "/Portfolio/images/projects/tap-to-boom.jpg",
@@ -278,7 +288,7 @@ const INFO = {
 				"Hearts, game over, and the overall game loop.",
 			],
 			process: [
-				"Taps are checked with a raycast against the bombs' colliders. Most of the tuning was spawn rate and fall speed, plus some small effects and sounds so a hit feels like a hit.",
+				"Taps are checked with a raycast against the bombs' colliders. Most of the tuning was spawn rate and fall speed, plus some small effects and sounds so that hitting a bomb feels satisfying.",
 			],
 		},
 	],

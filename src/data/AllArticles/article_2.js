@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { getArticleLink } from "../links";
 
 export function article_2() {
 	return {
@@ -24,11 +27,9 @@ export function article_2() {
 			<div className="article-content">
 				<div className="article-intro">
 					<p className="article-lead">
-						A 2D world where every creature is driven by a tiny
-						neural network. Nobody tells them how to find food or
-						avoid danger: the brains that survive longest get
-						copied and mutated into the next generation, and over
-						a few hundred episodes they work it out on their own.
+						All entities exist within a 2D environment. There are no instructions for these entities about what to eat or how to avoid threats. 
+						Those with the most successful brains are used as a template for the next generation which then undergoes change. 
+						Within a couple of hundred episodes the entities can then teach themselves.
 					</p>
 
 					<div className="project-tech-stack">
@@ -81,18 +82,23 @@ export function article_2() {
 					<p>
 						I wanted to see how a life with only one purpose,
 						staying alive, would behave if it had its own neural
-						network and nobody told it what to do. No scripted
-						behaviour, no Behavior Tree: just a small brain, a
-						few rules about energy and food, and selection
-						keeping whatever works.
+						network and nobody told it what to do. Nothing is
+						scripted. Each Life has a small brain and a few rules
+						about energy and food, and selection keeps whatever
+						works.
 					</p>
 
 					<p>
 						I also wanted the system to be independent of any
-						rendering framework. raylib only draws the world; the
-						simulation itself doesn't know it exists. If I want
+						rendering framework. raylib only draws the world, and
+						the simulation itself doesn't know it exists. If I want
 						to use the same system inside Unreal, I should be
 						able to drop it in and put Unreal on top instead.
+						I've since done exactly that in{" "}
+						<Link to={getArticleLink("life-simulator")}>
+							Life Simulator
+						</Link>
+						.
 					</p>
 				</section>
 
@@ -100,9 +106,9 @@ export function article_2() {
 					<h2>The rules</h2>
 
 					<p>
-						The world is a grid where each cell holds at most one
-						thing: food, a Life or a Destroyer. Every tick, each
-						entity gets one action.
+						The world is a grid, and each cell holds at most one
+						food item, Life or Destroyer. Every tick, each entity
+						gets one action.
 					</p>
 
 					<div className="feature-list">
@@ -111,14 +117,9 @@ export function article_2() {
 							<div>
 								<h3>The creatures that learn</h3>
 								<p>
-									Each Life sees the 5×5 area around it (123
-									inputs) and a 123-16-16-8 network picks one
-									of: wait, move in one of four directions,
-									attack, or eat, plus whether to consume
-									what it kills. Energy drains every tick.
-									Attacks cost energy and have a cooldown.
-									After eating 5 food, a Life spawns a child
-									with a possibly mutated copy of its brain.
+									Each life can see a 5x5 square. The 123-16-16-8 neural network then chooses for a life to either pause, go in one of 4 directions, 
+									attack and/or eat. Energy is lost each tick. Attacking also uses energy and has a time before it can be done again. 
+									Once a life has eaten 5 food items it then produces offspring which has a possibly mutated version of its brain.
 								</p>
 							</div>
 						</div>
@@ -128,11 +129,12 @@ export function article_2() {
 							<div>
 								<h3>The threat</h3>
 								<p>
-									No brain, just a state machine: walk 5-8
-									cells, attack a few times, repeat. Its
-									energy never drains, so only Lives can
-									kill it, and doing so earns a big fitness
-									bonus.
+									Destroyers have no brain. Each one runs a
+									simple state machine that walks 5 to 8
+									cells, attacks a few times and starts again.
+									Their energy never drains, so only Lives
+									can kill them, and doing so earns a big
+									fitness bonus.
 								</p>
 							</div>
 						</div>
@@ -144,8 +146,9 @@ export function article_2() {
 								<p>
 									When every Life is dead, the episode ends.
 									The next one starts from the 10 best
-									distinct brains: 80% get mutated copies,
-									20% get exact copies. Fitness is ticks
+									distinct brains, with 80% of the new Lives
+									getting mutated copies and 20% getting
+									exact copies. Fitness is ticks
 									survived, plus bonuses for food, children
 									and kills, minus penalties for idling.
 								</p>
@@ -181,21 +184,18 @@ export function article_2() {
 					<h2>Why neuroevolution</h2>
 
 					<p>
-						Gradient-based reinforcement learning needs a
-						differentiable setup, a training framework, and a lot
-						of tuning. Neuroevolution only needs a score at the
-						end of a life. That meant I could write the whole
-						thing from scratch, including the network and the
-						forward pass, with no ML libraries.
+						Gradient based reinforcement learning relies on a differentiable environment and training process. 
+						The neuroevolutionary approach only requires an end-of-life score. 
+						This allowed me to design, and even code, both the neural network and the forward pass from first principles, 
+						without using any ML libraries.
+
 					</p>
 
 					<p>
-						It also lets fitness be anything I can measure: how
-						long a Life survived, how much it ate, whether it
-						killed a Destroyer. And because every Life runs the
-						same forward pass, the whole population can be
-						evaluated as one batch, which is what made a GPU
-						backend possible later.
+						As well as allowing me to define a suitable fitness function (such as a Life’s 
+						lifespan, food intake and/or destruction of a Destroyer), 
+						the identical forward pass for each Life means that the whole population can be assessed 
+						in one ‘batch’. This enabled the use of a GPU as a backend for processing.
 					</p>
 				</section>
 
@@ -208,8 +208,7 @@ export function article_2() {
 						else. The raylib GUI, a headless trainer and the test
 						runner all link against it. If simulation code ever
 						called raylib, the headless build would fail to link,
-						so the boundary is enforced by the linker, not by
-						discipline.
+						so the linker itself keeps the two apart.
 					</p>
 
 					<div className="feature-list">
@@ -223,9 +222,9 @@ export function article_2() {
 									<code>update()</code> per object, each
 									archetype is a plain struct in a dense
 									vector, and behaviour lives in systems that
-									run in a fixed order each tick.
-									Cache-friendly, and every rule can be
-									tested on a hand-built world.
+									run in a fixed order each tick. The data
+									stays cache friendly, and I can test each
+									rule on a small world built by hand.
 								</p>
 							</div>
 						</div>
@@ -301,16 +300,16 @@ export function article_2() {
 					</p>
 
 					<p>
-						<strong>Too many actions.</strong> I started with 13
-						actions (wait, plus move, attack and eat in each
+						The first problem was the number of actions. I
+						started with 13 actions (wait, plus move, attack and eat in each
 						direction). Cutting it to 7 by making attack and eat
 						non-directional took the best fitness from 1,094 after
 						1,500 episodes to 3,150 after 1,000.
 					</p>
 
 					<p>
-						<strong>Mutations that were too big.</strong> With a
-						mutation strength of 0.3, the saved "best" brain did
+						The mutations were also too big. With a mutation
+						strength of 0.3, the saved "best" brain did
 						no better than random ones on new seeds. The
 						first-layer weights were around 0.09, so every
 						mutation scrambled the network. I swept 12 settings
@@ -318,9 +317,9 @@ export function article_2() {
 					</p>
 
 					<p>
-						<strong>Lives that just stood still.</strong> Adding a
+						The last problem was Lives that just stood still. A
 						fitness penalty for waiting stopped them wiggling back
-						and forth, but they still idled 82-97% of the time. I
+						and forth, but they still idled 82 to 97% of the time. I
 						wrote a diagnostic that logged every action, and it
 						showed most "idle" ticks were actually failed actions:
 						walking into a wall, or into food, which blocked
@@ -448,8 +447,8 @@ export function article_2() {
 						alt="Inspecting a single Life"
 					/>
 					<figcaption>
-						Pause and click any Life to inspect it: energy, food,
-						kills, fitness and its last action.
+						Pausing and clicking a Life shows its energy, food,
+						kills, fitness and last action.
 					</figcaption>
 				</figure>
 

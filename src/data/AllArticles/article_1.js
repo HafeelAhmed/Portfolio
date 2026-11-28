@@ -165,9 +165,9 @@ export function article_1() {
 					<p>
 						I looked at where players were getting stuck and
 						turned around, then worked through those spots one at
-						a time: AI pathing, level flow, and making the
-						environment easier to read so the way forward is
-						clearer.
+						a time. That meant fixing AI pathing, changing the
+						level flow and making the environment easier to read,
+						so players can see which way to go.
 					</p>
 				</section>
 
@@ -202,14 +202,13 @@ export function article_1() {
 				</div>
 
 				<section className="article-section">
-					<h2>How the work goes</h2>
+					<h2>Working on a game that is still changing</h2>
 
 					<p>
-						The game is still changing, so I try to build systems
-						that can be extended rather than ones that only solve
-						today's problem. Changes go into the demo, get tested
-						internally, and come back with feedback for the next
-						pass.
+						The design is still moving, so I try to build systems
+						that can be extended later without a rewrite. My
+						changes go into the demo and are tested internally,
+						and the feedback goes into the next pass.
 					</p>
 				</section>
 
